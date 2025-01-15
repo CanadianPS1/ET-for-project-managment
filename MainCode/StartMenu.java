@@ -1,7 +1,10 @@
 package MainCode;
 
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class StartMenu implements ActionListener{
     JFrame game;
