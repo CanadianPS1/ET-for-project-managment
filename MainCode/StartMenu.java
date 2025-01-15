@@ -23,14 +23,14 @@ public class StartMenu implements ActionListener{
 
         game.add(startButton);
 
-        game.getGraphics();
+        game.update(game.getGraphics());
         startButton.addActionListener((ActionListener) this);       
     }
     @Override
     public void actionPerformed(ActionEvent e){
         startButton.setVisible(false);
         game.remove(startButton);
-        game.getGraphics();
+        game.update(game.getGraphics());
         System.out.println("Start Button Pressed");
     }  
 }
