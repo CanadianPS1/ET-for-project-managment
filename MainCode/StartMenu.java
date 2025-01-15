@@ -29,6 +29,7 @@ public class StartMenu implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         startButton.setVisible(false);
+        game.remove(startButton);
         game.getGraphics();
         System.out.println("Start Button Pressed");
     }  
