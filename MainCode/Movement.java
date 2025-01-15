@@ -14,13 +14,13 @@ public class Movement{
         game = g;
         nextScreen = nS;
         System.out.println("Next Tile is : " + nextScreen);
-
+        
     }
     public void ETMoveFirstRun(){
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
-        ET.setLocation(0,0);
+        ET.setLocation(0,100);
         game.add(ET);
     }
     public ImageIcon ETMove(ImageIcon ET){
