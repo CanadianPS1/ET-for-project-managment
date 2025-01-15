@@ -20,7 +20,7 @@ public class Movement{
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
-        ET.setLocation(0,0);
+        ET.setLocation(0,100);
         game.add(ET);
     }
     public ImageIcon ETMove(ImageIcon ET){
