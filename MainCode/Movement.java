@@ -23,7 +23,7 @@ public class Movement{
         ET.setLocation(0,100);
         game.add(ET);
     }
-    public ImageIcon ETMove(ImageIcon ET){
+    public ImageIcon ETMoveAnimation(ImageIcon ET){
         switch (moveAnimationSpot) {
             case 0 -> {
                 ET.setImage(ETMoveOne.getImage());
