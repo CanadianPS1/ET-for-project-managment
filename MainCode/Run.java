@@ -2,6 +2,7 @@ package MainCode;
 
 public class Run{
     public static void main(String [] args){
-        new StartMenu();
+        @SuppressWarnings("unused")
+        StartMenu game = new StartMenu();
     }
 }

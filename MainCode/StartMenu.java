@@ -1,7 +1,10 @@
 package MainCode;
 
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class StartMenu implements ActionListener{
     JFrame game;
@@ -20,7 +23,7 @@ public class StartMenu implements ActionListener{
         startButton.setSize(320,210);
         startButton.setVisible(true);
         startButton.setIcon(startScreenIcon);
-
+        
         game.add(startButton);
 
         game.update(game.getGraphics());
