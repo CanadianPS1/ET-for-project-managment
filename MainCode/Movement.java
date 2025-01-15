@@ -33,6 +33,8 @@ public class Movement{
                 moveAnimationSpot = 1;
             }
             default -> {
+                ET.setImage(ETIdle.getImage());
+                moveAnimationSpot = 0;
             }
         }
 
