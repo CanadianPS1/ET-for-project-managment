@@ -1,8 +1,42 @@
 package MainCode;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 public class Movement{
-    public Movement(){
+    JFrame game;
+    JLabel ET;
+    int nextScreen;
+    int moveAnimationSpot = 0;
+    ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
+    ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
+    ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
+    public Movement(JFrame g, int nS){
+        game = g;
+        nextScreen = nS;
 
-        
+    }
+    public void ETMoveFirstRun(){
+        ET = new JLabel(ETIdle);
+    }
+    public ImageIcon ETMove(ImageIcon ET){
+        switch (moveAnimationSpot) {
+            case 0 -> {
+                ET.setImage(ETMoveOne.getImage());
+                moveAnimationSpot = 1;
+            }
+            case 1 -> {
+                ET.setImage(ETMoveTwo.getImage());
+                moveAnimationSpot = 2;
+            }
+            case 2 ->{
+                ET.setImage(ETMoveOne.getImage());
+                moveAnimationSpot = 1;
+            }
+            default -> {
+            }
+        }
+
+        return ET;
     }
 }
     
