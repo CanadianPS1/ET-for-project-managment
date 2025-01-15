@@ -9,33 +9,27 @@ public class StartMenu implements ActionListener{
     JButton startButton;
     public StartMenu(){
         startScreenIcon = new ImageIcon("seperated sprites\\Screens\\MainMenue.png");
-
-
+        ImageIcon gameIcon = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
 
         game = new JFrame();
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        game.setSize(335,249);
+        game.setBounds(700,300,325,240);
         game.setVisible(true);
+        game.setIconImage(gameIcon.getImage());
         startButton = new JButton();
         startButton.setSize(320,210);
         startButton.setVisible(true);
         startButton.setIcon(startScreenIcon);
 
-        //game.add(startScreenLabel);
         game.add(startButton);
 
-
         game.getGraphics();
-        startButton.addActionListener((ActionListener) this);
-    
-        
+        startButton.addActionListener((ActionListener) this);       
     }
-
     @Override
     public void actionPerformed(ActionEvent e){
         startButton.setVisible(false);
         game.getGraphics();
         System.out.println("Start Button Pressed");
-    }
-    
+    }  
 }
