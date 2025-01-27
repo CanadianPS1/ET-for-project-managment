@@ -94,6 +94,7 @@ public class Movement implements KeyListener{
         }else if(key == KeyEvent.VK_D){
             ET.setLocation(ET.getX() + 5, ET.getY());
             ETMoveAnimation(ET);
+        //once var is made we need to add && etInHole into the if statment for the space bar
         }else if(key == KeyEvent.VK_SPACE){
             ET.setLocation(ET.getX(), ET.getY() - 5);
             ETFlyAnimation(ET);
