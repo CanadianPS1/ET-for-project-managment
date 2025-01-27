@@ -16,9 +16,9 @@ public class Movement implements KeyListener{
         game = g;
         nextScreen = nS;
         System.out.println("Next Tile is : " + nextScreen);
-        //ET.addKeyListener(null);
     }
     public void ETMoveFirstRun(){
+        game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
@@ -57,7 +57,6 @@ public class Movement implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        System.out.println("KEY PRESSED: " + key);
         switch (key) {
             case KeyEvent.VK_W -> ET.setLocation(ET.getX(), ET.getY() - 5);
             case KeyEvent.VK_A -> ET.setLocation(ET.getX() - 5, ET.getY());
@@ -85,6 +84,7 @@ public class Movement implements KeyListener{
             case KeyEvent.VK_D -> ET.setLocation(ET.getX() + 5, ET.getY());
         }
     }
+
 
     
 
