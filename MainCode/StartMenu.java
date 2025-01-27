@@ -19,6 +19,7 @@ public class StartMenu implements ActionListener{
         game.setBounds(700,300,325,240);
         game.setVisible(true);
         game.setIconImage(gameIcon.getImage());
+        game.setFocusable(true);
         startButton = new JButton();
         startButton.setSize(320,210);
         startButton.setVisible(true);
