@@ -36,10 +36,10 @@ public class StartMenu implements ActionListener{
         game.remove(startButton);
         game.update(game.getGraphics());
         System.out.println("Start Button Pressed");
-        new Movement(game, 2).ETMoveFirstRun();
+        new Movement(game).ETMoveFirstRun();
 
-        SceneHandler handler = new SceneHandler(game, 2);
+        SceneHandler handler = new SceneHandler(game, 0);
 
-        handler.screenChange(0);
+        handler.screenChange(true);
     }  
 }
