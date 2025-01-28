@@ -1,8 +1,12 @@
 package MainCode;
 import java.awt.event.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
@@ -14,7 +18,7 @@ public class Movement implements KeyListener{
     ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
-
+    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     public Movement(JFrame g){
         game = g;
         System.out.println("Next Screen is : " + nextScreen);
@@ -29,7 +33,14 @@ public class Movement implements KeyListener{
         ET.setSize(16,17);
         ET.setLocation(100,100);
         game.add(ET);
-        
+        GreatComputer detective = new GreatComputer(game, moveAnimationSpot);
+        Runnable computerMovment = () -> {
+            detective.move(ET);
+            System.out.println("code ran");
+        };
+        scheduler.scheduleAtFixedRate(computerMovment, 5, 1, TimeUnit.SECONDS);
+        Thread aiMoving = new Thread(computerMovment);
+        aiMoving.start();
     }
     public JLabel ETMoveAnimation(JLabel ET){
         switch (moveAnimationSpot) {
