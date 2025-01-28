@@ -19,7 +19,7 @@ public class SceneHandler extends Movement {
     public SceneHandler(JFrame g, int nS){
         game = g;
         nextScreen = nS;
-                
+            
     }
 
     public void screenChange(){
@@ -28,7 +28,7 @@ public class SceneHandler extends Movement {
         background.setSize(320,210);
 
         background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY]));
-
+        background.setLocation(0,0);
         background.setVisible(true);
 
         game.add(background);
