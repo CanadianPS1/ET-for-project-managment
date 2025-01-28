@@ -14,7 +14,7 @@ public class SceneHandler extends Movement {
     public SceneHandler(JFrame g, int nS){
         game = g;
         nextScreen = nS;
-                
+        
     }
 
     public void screenChange(boolean leftRightDirection, boolean upDownDirection){
