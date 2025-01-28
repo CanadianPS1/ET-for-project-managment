@@ -22,6 +22,7 @@ public class Movement implements KeyListener{
     protected int energy = 9999;
     public Movement(JFrame g){
         game = g;
+        handler = new SceneHandler(game);
     }
     public Movement(){
     }
@@ -120,7 +121,7 @@ public class Movement implements KeyListener{
 
         // SceneHandler gets called each step, so the screen # resets each time
         
-        handler = new SceneHandler(game);
+        
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
         handler.screenChange();
