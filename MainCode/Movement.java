@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
-    protected int nextScreen = 0;
     private int moveAnimationSpot = 0;
     private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
@@ -23,7 +22,6 @@ public class Movement implements KeyListener{
     protected int energy = 9999;
     public Movement(JFrame g){
         game = g;
-        System.out.println("Next Screen is : " + nextScreen);
     }
     public Movement(){
     }
@@ -35,7 +33,7 @@ public class Movement implements KeyListener{
         ET.setSize(16,17);
         ET.setLocation(100,100);
         game.add(ET);
-        GreatComputer detective = new GreatComputer(game, moveAnimationSpot);
+        GreatComputer detective = new GreatComputer(game);
         Runnable computerMovment = () -> {
             detective.move(ET);
         };
@@ -111,9 +109,7 @@ public class Movement implements KeyListener{
             }
             energy--;
         }
-        handler = new SceneHandler(game, nextScreen);
-        moveAnimationSpot = 0;
-        SceneHandler handler = new SceneHandler(game);
+        handler = new SceneHandler(game);
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
         handler.screenChange();

@@ -88,10 +88,8 @@ public class SceneHandler extends Movement {
 
         else{
             System.err.println("Error: Screen not found");
-            nextScreen = 0;
         }
 
-        System.out.println("Next Screen is : " + nextScreen);
 
 
     }

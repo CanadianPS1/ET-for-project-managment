@@ -8,8 +8,8 @@ public class GreatComputer extends SceneHandler{
     private final ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
     private int moveAnimationSpot = 0;
     protected JLabel detective;
-    public GreatComputer(JFrame g, int nS) {
-        super(g, nS);
+    public GreatComputer(JFrame g) {
+        super(g);
         detective = new JLabel(detectiveMove1);
         detective.setSize(12,28);
         detective.setLocation(250,30);
