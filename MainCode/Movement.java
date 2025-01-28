@@ -117,6 +117,9 @@ public class Movement implements KeyListener{
             }
             energy--;
         }
+
+        // SceneHandler gets called each step, so the screen # resets each time
+        
         handler = new SceneHandler(game);
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
