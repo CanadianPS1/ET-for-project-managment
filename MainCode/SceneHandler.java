@@ -1,6 +1,5 @@
 package MainCode;
 
-import java.util.ArrayList;
 import javax.swing.*;
 
 
@@ -18,7 +17,7 @@ public class SceneHandler extends Movement {
                 
     }
 
-    public void screenChange(boolean direction){
+    public void screenChange(boolean leftRightDirection, boolean upDownDirection){
         JLabel background = new JLabel();
 
         background.setSize(320,210);
@@ -28,41 +27,16 @@ public class SceneHandler extends Movement {
         game.add(background);
 
         // direcction = left
-        if (direction){
-            background.setIcon(new ImageIcon(strScenePaths.get(0)));
+        if (leftRightDirection){
+            background.setIcon(new ImageIcon(strScenePaths[0][nextScreen]));
         }
         else if (nextScreen == 1){
-            background.setIcon(new ImageIcon(strScenePaths.get(1)));
+            background.setIcon(new ImageIcon(strScenePaths[1][0]));
             nextScreen = 1;
         }
         else if (nextScreen == 2){
-            background.setIcon(new ImageIcon(strScenePaths.get(2)));
+            background.setIcon(new ImageIcon(strScenePaths[1][0]));
             nextScreen = 2;
-        }
-        else if (nextScreen == 3){
-            background.setIcon(new ImageIcon(strScenePaths.get(3)));
-            nextScreen = 3;
-
-        }
-        else if (nextScreen == 4){
-            background.setIcon(new ImageIcon(strScenePaths.get(4)));
-            nextScreen = 4;
-
-        }
-        else if (nextScreen == 5){
-            background.setIcon(new ImageIcon(strScenePaths.get(5)));
-            nextScreen = 5;
-
-        }
-        else if (nextScreen == 6){
-            background.setIcon(new ImageIcon(strScenePaths.get(6)));
-            nextScreen = 6;
-
-        }
-        else if (nextScreen == 7){
-            background.setIcon(new ImageIcon(strScenePaths.get(7)));
-            nextScreen = 7;
-
         }
         else{
             System.err.println("Error: Screen not found");
@@ -75,7 +49,8 @@ public class SceneHandler extends Movement {
 
     }
 
-    public boolean detectEdge(JLabel ET){
+    // detects Left and right edges of the screen
+    public boolean detectLREdge(JLabel ET){
         if (ET.getX() == 0){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
@@ -87,7 +62,27 @@ public class SceneHandler extends Movement {
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getX());
-            ET.setLocation(0,ET.getY());
+            ET.setLocation(-10,ET.getY());
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public boolean detectUDEdge(JLabel ET){
+        if (ET.getY() == 0){
+            System.out.println("Edge Detected");
+            System.out.println(ET.getY());
+            // screenChange(intScreenNum + 1);
+            ET.setLocation(ET.getX(),190);
+            return true;
+        }
+        else if (ET.getY() == 200){
+            System.out.println("Edge Detected");
+            // screenChange(intScreenNum - 1);
+            System.out.println(ET.getY());
+            ET.setLocation(ET.getX(),-10);
             return false;
         }
         else{
