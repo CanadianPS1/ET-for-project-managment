@@ -6,13 +6,13 @@ import javax.swing.*;
 public class SceneHandler extends Movement {
 
     String[][] strScenePaths = new String[][]{
-        {null, "seperated sprites\\Screens\\Pits03.png", null,  "seperated sprites\\Screens\\Pits03.png", null},
-        {"seperated sprites\\Screens\\Pits02.png", "seperated sprites\\Screens\\Forest.png", "seperated sprites\\Screens\\Pits04.png",  "seperated sprites\\Screens\\DC.png", "seperated sprites\\Screens\\Pits02.png"},
-        {null, "seperated sprites\\Screens\\Pits01.png", null, "seperated sprites\\Screens\\Pits01.png",null}
+        {null,                                     "seperated sprites\\Screens\\Pits03.png", null,                                     "seperated sprites\\Screens\\Pits03.png",null},
+        {"seperated sprites\\Screens\\Pits02.png", "seperated sprites\\Screens\\Forest.png", "seperated sprites\\Screens\\Pits04.png", "seperated sprites\\Screens\\DC.png","seperated sprites\\Screens\\Pits02.png"},
+        {null,                                     "seperated sprites\\Screens\\Pits01.png", null,                                     "seperated sprites\\Screens\\Pits01.png",null}
     };
 
     private int intCurrentX = 1;
-    private int intCurrentY = 1;
+    private int intCurrentY = 0;
 
     public SceneHandler(JFrame g, int nS){
         game = g;
@@ -30,22 +30,52 @@ public class SceneHandler extends Movement {
 
         // direcction = left
         if (leftRightDirection){
-            if (strScenePaths[intCurrentX][intCurrentY + 1] == null){
+            try {
+                if (strScenePaths[intCurrentX][intCurrentY + 1].equals(null)){
+                    return;
+                }
+                else{
+                    background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
+                    intCurrentY++;
+    
+                    System.out.println(strScenePaths[intCurrentX][intCurrentY]);
+                }
+            } catch (Exception e) {
+                System.err.println("Error: Screen not found");
+                return;
+            }
+
+            
+        }
+        else if (!leftRightDirection){
+            if (strScenePaths[intCurrentX][intCurrentY - 1] == null){
                 return;
             }
             else{
-                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
-                intCurrentY++;
+                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY - 1]));
+                intCurrentY--;
             }
-            
+
         }
-        else if (nextScreen == 1){
-            background.setIcon(new ImageIcon(strScenePaths[1][0]));
-            nextScreen = 1;
+        else if (upDownDirection){
+            if (strScenePaths[intCurrentX + 1][intCurrentY] == null){
+                return;
+            }
+            else{
+                background.setIcon(new ImageIcon(strScenePaths[intCurrentX + 1][intCurrentY]));
+                intCurrentX++;
+            }
         }
-        else if (nextScreen == 2){
-            background.setIcon(new ImageIcon(strScenePaths[1][0]));
-            nextScreen = 2;
+        else if (!upDownDirection){
+            if (strScenePaths[intCurrentX - 1][intCurrentY] == null){
+                return;
+            }
+            else{
+                background.setIcon(new ImageIcon(strScenePaths[intCurrentX - 1][intCurrentY]));
+                intCurrentX--;
+
+                System.out.println(intCurrentX);
+            }
         }
         else{
             System.err.println("Error: Screen not found");
@@ -61,17 +91,15 @@ public class SceneHandler extends Movement {
     // detects Left and right edges of the screen
     public boolean detectLREdge(JLabel ET){
         // Left edge
-        if (ET.getX() == 0){
+        if (ET.getX() == -2 || ET.getX() == -1){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
-            // screenChange(intScreenNum + 1);
             ET.setLocation(300,ET.getY());
             return true;
         }
         // Right edge
-        else if (ET.getX() == 300){
+        else if (ET.getX() == 300 || ET.getX() == 301){
             System.out.println("Edge Detected");
-            // screenChange(intScreenNum - 1);
             System.out.println(ET.getX());
             ET.setLocation(1,ET.getY());
             return false;
