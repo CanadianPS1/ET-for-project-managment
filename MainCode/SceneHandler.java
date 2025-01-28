@@ -12,7 +12,7 @@ public class SceneHandler extends Movement {
     };
 
     private int intCurrentX = 1;
-    private int intCurrentY = 0;
+    private int intCurrentY = 1;
 
     private Directions direction = Directions.N;
 
@@ -27,6 +27,8 @@ public class SceneHandler extends Movement {
 
         background.setSize(320,210);
 
+        background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY]));
+
         background.setVisible(true);
 
         game.add(background);
@@ -40,6 +42,8 @@ public class SceneHandler extends Movement {
                 else{
                     background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
                     intCurrentY++;
+
+                    background.setVisible(true);
     
                     System.out.println(strScenePaths[intCurrentX][intCurrentY]);
                 }
