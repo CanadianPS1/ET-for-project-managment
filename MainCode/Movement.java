@@ -24,7 +24,7 @@ public class Movement implements KeyListener{
         System.out.println("Next Screen is : " + nextScreen);
     }
     public Movement(){
-        
+
     }
     //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(){
@@ -107,7 +107,7 @@ public class Movement implements KeyListener{
             ETFlyAnimation(ET);
         }
         moveAnimationSpot = 0;
-        SceneHandler handler = new SceneHandler(game, nextScreen);
+        SceneHandler handler = new SceneHandler(game);
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
         handler.screenChange();

@@ -17,9 +17,7 @@ public class SceneHandler extends Movement {
     private Directions direction = Directions.N;
 
     public SceneHandler(JFrame g){
-        game = g;
-        nextScreen = nS;
-                
+        game = g;                
     }
 
     public void screenChange(){
