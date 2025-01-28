@@ -34,12 +34,11 @@ public class SceneHandler extends Movement {
         // direction = left
         if (direction.equals(this.direction.L)){
             try {
-                if (strScenePaths[intCurrentX][intCurrentY + 1].equals(null)){
-                    return;
+                if (strScenePaths[intCurrentX][intCurrentY - 1].equals(null)){
                 }
                 else{
-                    background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
-                    intCurrentY++;
+                    background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY - 1]));
+                    intCurrentY--;
 
                     background.setVisible(true);
                     background.setLocation(0, 0);
@@ -53,12 +52,17 @@ public class SceneHandler extends Movement {
             
         }
         else if (direction.equals(this.direction.R)){
-            if (strScenePaths[intCurrentX][intCurrentY - 1] == null){
+            if (strScenePaths[intCurrentX][intCurrentY + 1] == null){
                 return;
             }
             else{
-                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY - 1]));
-                intCurrentY--;
+                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
+                intCurrentY++;
+
+                background.setVisible(true);
+                background.setLocation(0, 0);
+
+                System.out.println(strScenePaths[intCurrentX][intCurrentY]);
             }
 
         }
@@ -83,9 +87,8 @@ public class SceneHandler extends Movement {
             }
         }
         else if (direction.equals(this.direction.N)){
-            return;
+            //does nothing
         }
-
         else{
             System.err.println("Error: Screen not found");
         }
