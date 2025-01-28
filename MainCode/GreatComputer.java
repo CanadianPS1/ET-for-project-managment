@@ -5,6 +5,7 @@ public class GreatComputer extends SceneHandler{
     ImageIcon detectiveMove2 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA2.png");
     ImageIcon detectiveMove3 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA3.png");
     ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
+    int moveAnimationSpot = 0;
     protected JLabel detective;
     private int locationScreenDelay;
     public GreatComputer(JFrame g, int nS) {
@@ -16,8 +17,6 @@ public class GreatComputer extends SceneHandler{
         game.add(detective);
     }
     public void move(JLabel ET){
-        System.out.println("detective is moving");
-
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 8, detective.getY());
         }
@@ -30,8 +29,34 @@ public class GreatComputer extends SceneHandler{
         if(ET.getY() < detective.getY()){
             detective.setLocation(detective.getX(), detective.getY() - 8);
         }
+        detectiveMoveAnimation(detective);
     }
         
+    public JLabel detectiveMoveAnimation(JLabel detective){
+        switch (moveAnimationSpot) {
+            case 0 -> {
+                detective.setIcon(detectiveMove1);
+                moveAnimationSpot = 1;
+            }
+            case 1 -> {
+                detective.setIcon(detectiveMove2);
+                moveAnimationSpot = 2;
+            }
+            case 2 ->{
+                detective.setIcon(detectiveMove3);
+                moveAnimationSpot = 3;
+            }
+            case 3 ->{
+                detective.setIcon(detectiveMove4);
+                moveAnimationSpot = 1;
+            }
+            default -> {
+                detective.setIcon(detectiveMove1);
+                moveAnimationSpot = 0;
+            }
+        }
 
+        return ET;
+    }
     
 }

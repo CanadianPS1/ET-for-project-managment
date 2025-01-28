@@ -36,9 +36,8 @@ public class Movement implements KeyListener{
         GreatComputer detective = new GreatComputer(game, moveAnimationSpot);
         Runnable computerMovment = () -> {
             detective.move(ET);
-            System.out.println("code ran");
         };
-        scheduler.scheduleAtFixedRate(computerMovment, 5, 1, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(computerMovment, 5, 500, TimeUnit.MILLISECONDS);
         Thread aiMoving = new Thread(computerMovment);
         aiMoving.start();
     }
