@@ -11,7 +11,7 @@ public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
     protected int nextScreen = 0;
-    int moveAnimationSpot = 0;
+    private int moveAnimationSpot = 0;
     ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
     ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
