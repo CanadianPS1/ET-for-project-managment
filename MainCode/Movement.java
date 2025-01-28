@@ -18,6 +18,7 @@ public class Movement implements KeyListener{
     private final ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
+    protected SceneHandler handler;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     protected int energy = 9999;
     public Movement(JFrame g){
@@ -108,7 +109,7 @@ public class Movement implements KeyListener{
             }
             energy--;
         }
-        SceneHandler handler = new SceneHandler(game, nextScreen);
+        handler = new SceneHandler(game, nextScreen);
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
         handler.screenChange();
