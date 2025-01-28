@@ -98,6 +98,10 @@ public class Movement implements KeyListener{
             ETFlyAnimation(ET);
         }
         moveAnimationSpot = 0;
+
+        SceneHandler handler = new SceneHandler(game, nextScreen);
+
+        handler.detectEdge();
     }
 
     @Override
