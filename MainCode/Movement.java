@@ -15,11 +15,14 @@ public class Movement implements KeyListener{
     ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
-    
+
     public Movement(JFrame g, int nS){
         game = g;
         nextScreen = nS;
         System.out.println("Next Tile is : " + nextScreen);
+    }
+
+    public Movement() {
     }
     public void ETMoveFirstRun(){
         game.addKeyListener(this);
@@ -94,6 +97,7 @@ public class Movement implements KeyListener{
         }else if(key == KeyEvent.VK_D){
             ET.setLocation(ET.getX() + 5, ET.getY());
             ETMoveAnimation(ET);
+        //once var is made we need to add && etInHole into the if statment for the space bar
         }else if(key == KeyEvent.VK_SPACE){
             ET.setLocation(ET.getX(), ET.getY() - 5);
             ETFlyAnimation(ET);
