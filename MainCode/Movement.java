@@ -4,9 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 public class Movement implements KeyListener{
-    JFrame game;
-    JLabel ET;
-    int nextScreen;
+    protected JFrame game;
+    protected JLabel ET;
+    protected int nextScreen;
     int moveAnimationSpot = 0;
     ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
