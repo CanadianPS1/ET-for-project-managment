@@ -5,9 +5,8 @@ public class GreatComputer extends SceneHandler{
     ImageIcon detectiveMove2 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA2.png");
     ImageIcon detectiveMove3 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA3.png");
     ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
-    int moveAnimationSpot = 0;
+    private int moveAnimationSpot = 0;
     protected JLabel detective;
-    private int locationScreenDelay;
     public GreatComputer(JFrame g, int nS) {
         super(g, nS);
         detective = new JLabel(detectiveMove1);
