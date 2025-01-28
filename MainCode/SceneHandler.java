@@ -62,7 +62,7 @@ public class SceneHandler extends Movement {
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getX());
-            ET.setLocation(-10,ET.getY());
+            ET.setLocation(1,ET.getY());
             return false;
         }
         else{
@@ -71,14 +71,14 @@ public class SceneHandler extends Movement {
     }
 
     public boolean detectUDEdge(JLabel ET){
-        if (ET.getY() == 0){
+        if (ET.getY() == -8){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
             // screenChange(intScreenNum + 1);
             ET.setLocation(ET.getX(),190);
             return true;
         }
-        else if (ET.getY() == 200){
+        else if (ET.getY() == 185){
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getY());
