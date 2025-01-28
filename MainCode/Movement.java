@@ -11,7 +11,6 @@ public class Movement implements KeyListener{
     ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
     ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
-    ImageIcon backgroundTestIcon = new ImageIcon("seperated sprites\\Screens\\Pits01.png");
     ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
@@ -31,11 +30,7 @@ public class Movement implements KeyListener{
         ET.setSize(16,17);
         ET.setLocation(0,100);
         game.add(ET);
-        JLabel backgroundTest = new JLabel();
-        backgroundTest.setSize(320,210);
-        backgroundTest.setVisible(true);
-        backgroundTest.setIcon(backgroundTestIcon);
-        game.add(backgroundTest);
+        
     }
     public JLabel ETMoveAnimation(JLabel ET){
         switch (moveAnimationSpot) {
