@@ -14,13 +14,15 @@ public class SceneHandler extends Movement {
     private int intCurrentX = 1;
     private int intCurrentY = 0;
 
+    private Directions direction = Directions.N;
+
     public SceneHandler(JFrame g, int nS){
         game = g;
         nextScreen = nS;
                 
     }
 
-    public void screenChange(boolean leftRightDirection, boolean upDownDirection){
+    public void screenChange(){
         JLabel background = new JLabel();
 
         background.setSize(320,210);
@@ -29,8 +31,8 @@ public class SceneHandler extends Movement {
 
         game.add(background);
 
-        // direcction = left
-        if (leftRightDirection){
+        // direction = left
+        if (direction.equals(this.direction.L)){
             try {
                 if (strScenePaths[intCurrentX][intCurrentY + 1].equals(null)){
                     return;
@@ -48,7 +50,7 @@ public class SceneHandler extends Movement {
 
             
         }
-        else if (!leftRightDirection){
+        else if (direction.equals(this.direction.R)){
             if (strScenePaths[intCurrentX][intCurrentY - 1] == null){
                 return;
             }
@@ -58,7 +60,7 @@ public class SceneHandler extends Movement {
             }
 
         }
-        else if (upDownDirection){
+        else if (direction.equals(this.direction.U)){
             if (strScenePaths[intCurrentX + 1][intCurrentY] == null){
                 return;
             }
@@ -67,7 +69,7 @@ public class SceneHandler extends Movement {
                 intCurrentX++;
             }
         }
-        else if (!upDownDirection){
+        else if (direction.equals(this.direction.D)){
             if (strScenePaths[intCurrentX - 1][intCurrentY] == null){
                 return;
             }
@@ -90,34 +92,31 @@ public class SceneHandler extends Movement {
     }
 
     // detects Left and right edges of the screen
-    public boolean detectLREdge(JLabel ET){
+    public void detectLREdge(JLabel ET){
         // Left edge
         if (ET.getX() == -2 || ET.getX() == -1){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
             ET.setLocation(300,ET.getY());
-            return true;
+            direction = Directions.L;
         }
         // Right edge
         else if (ET.getX() == 300 || ET.getX() == 301){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
             ET.setLocation(1,ET.getY());
-            return false;
-        }
-        else{
-            return true;
+            direction = Directions.R;
         }
     }
 
-    public boolean detectUDEdge(JLabel ET){
+    public void detectUDEdge(JLabel ET){
         // Top edge
         if (ET.getY() == 0){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
             // screenChange(intScreenNum + 1);
             ET.setLocation(ET.getX(),190);
-            return true;
+            direction = Directions.U;
         }
         // bottom edge
         else if (ET.getY() == 200){
@@ -125,10 +124,7 @@ public class SceneHandler extends Movement {
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getY());
             ET.setLocation(ET.getX(),2);
-            return false;
-        }
-        else{
-            return true;
+            direction = Directions.D;
         }
     }
 
