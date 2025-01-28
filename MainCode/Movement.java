@@ -89,23 +89,31 @@ public class Movement implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if(energy > 0){
-            if(key == KeyEvent.VK_W){
-                ETMoveAnimation(ET);
-                ET.setLocation(ET.getX(), ET.getY() - 2);
-            }else if(key == KeyEvent.VK_A){
-                ET.setLocation(ET.getX() - 2, ET.getY());
-                ETMoveAnimation(ET);
-            }else if(key == KeyEvent.VK_S){
-                ET.setLocation(ET.getX(), ET.getY() + 2);
-                ETMoveAnimation(ET);
-            }else if(key == KeyEvent.VK_D){
-                ET.setLocation(ET.getX() + 2, ET.getY());
-                ETMoveAnimation(ET);
-            //once var is made we need to add && etInHole into the if statment for the space bar
-            }else if(key == KeyEvent.VK_SPACE){
-                ET.setLocation(ET.getX(), ET.getY() - 2);
-                ETFlyAnimation(ET);
-                energy = energy - 18;
+            switch (key) {
+                case KeyEvent.VK_W -> {
+                    ETMoveAnimation(ET);
+                    ET.setLocation(ET.getX(), ET.getY() - 2);
+                }
+                case KeyEvent.VK_A -> {
+                    ET.setLocation(ET.getX() - 2, ET.getY());
+                    ETMoveAnimation(ET);
+                }
+                case KeyEvent.VK_S -> {
+                    ET.setLocation(ET.getX(), ET.getY() + 2);
+                    ETMoveAnimation(ET);
+                }
+                case KeyEvent.VK_D -> {
+                    ET.setLocation(ET.getX() + 2, ET.getY());
+                    ETMoveAnimation(ET);
+                }
+                //once var is made we need to add && etInHole into the if statment for the space bar
+                case KeyEvent.VK_SPACE -> {
+                    ET.setLocation(ET.getX(), ET.getY() - 2);
+                    ETFlyAnimation(ET);
+                    energy = energy - 18;
+                }
+                default -> {
+                }
             }
             energy--;
         }
