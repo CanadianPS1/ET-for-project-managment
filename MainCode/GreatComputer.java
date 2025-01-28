@@ -61,5 +61,4 @@ public class GreatComputer extends SceneHandler{
         }
         return ET;
     }
-    
 }
