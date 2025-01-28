@@ -15,11 +15,14 @@ public class Movement implements KeyListener{
     ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
-    
+
     public Movement(JFrame g, int nS){
         game = g;
         nextScreen = nS;
         System.out.println("Next Tile is : " + nextScreen);
+    }
+
+    public Movement() {
     }
     public void ETMoveFirstRun(){
         game.addKeyListener(this);
