@@ -115,19 +115,19 @@ public class SceneHandler extends Movement {
 
     public void detectUDEdge(JLabel ET){
         // Top edge
-        if (ET.getY() == 0){
+        if (ET.getY() == 20){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
             // screenChange(intScreenNum + 1);
-            ET.setLocation(ET.getX(),190);
+            ET.setLocation(ET.getX(),150);
             direction = Directions.U;
         }
         // bottom edge
-        else if (ET.getY() == 200){
+        else if (ET.getY() == 160){
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getY());
-            ET.setLocation(ET.getX(),2);
+            ET.setLocation(ET.getX(),22);
             direction = Directions.D;
         }
     }
