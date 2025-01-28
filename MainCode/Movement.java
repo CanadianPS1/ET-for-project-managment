@@ -101,7 +101,7 @@ public class Movement implements KeyListener{
         SceneHandler handler = new SceneHandler(game, nextScreen);
 
         
-        handler.screenChange(handler.detectLREdge(ET), handler.detectUDEdge(ET));
+        handler.screenChange();
     }
 
     @Override

@@ -40,6 +40,6 @@ public class StartMenu implements ActionListener{
 
         SceneHandler handler = new SceneHandler(game, 0);
 
-        handler.screenChange(true, true);
+        handler.screenChange();
     }  
 }
