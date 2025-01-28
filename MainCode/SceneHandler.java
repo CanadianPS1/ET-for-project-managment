@@ -11,10 +11,12 @@ public class SceneHandler extends Movement {
         {null, "seperated sprites\\Screens\\Pits01.png", null, "seperated sprites\\Screens\\Pits01.png",null}
     };
 
+    private int intCurrentX = 1;
+    private int intCurrentY = 1;
+
     public SceneHandler(JFrame g, int nS){
         game = g;
-        nextScreen = nS;
-                
+        nextScreen = nS;   
     }
 
     public void screenChange(boolean leftRightDirection, boolean upDownDirection){
@@ -28,7 +30,14 @@ public class SceneHandler extends Movement {
 
         // direcction = left
         if (leftRightDirection){
-            background.setIcon(new ImageIcon(strScenePaths[0][nextScreen]));
+            if (strScenePaths[intCurrentX][intCurrentY + 1] == null){
+                return;
+            }
+            else{
+                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
+                intCurrentY++;
+            }
+            
         }
         else if (nextScreen == 1){
             background.setIcon(new ImageIcon(strScenePaths[1][0]));
@@ -51,6 +60,7 @@ public class SceneHandler extends Movement {
 
     // detects Left and right edges of the screen
     public boolean detectLREdge(JLabel ET){
+        // Left edge
         if (ET.getX() == 0){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
@@ -58,6 +68,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(300,ET.getY());
             return true;
         }
+        // Right edge
         else if (ET.getX() == 300){
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
@@ -71,6 +82,7 @@ public class SceneHandler extends Movement {
     }
 
     public boolean detectUDEdge(JLabel ET){
+        // Top edge
         if (ET.getY() == 0){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
@@ -78,6 +90,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(ET.getX(),190);
             return true;
         }
+        // bottom edge
         else if (ET.getY() == 200){
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
