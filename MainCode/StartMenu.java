@@ -13,7 +13,7 @@ public class StartMenu implements ActionListener{
     public StartMenu(){
         startScreenIcon = new ImageIcon("seperated sprites\\Screens\\MainMenue.png");
         ImageIcon gameIcon = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
-        game = new JFrame();
+        game = new JFrame("Extra Terrestrial");
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.setBounds(700,300,325,240);
         game.setVisible(true);
