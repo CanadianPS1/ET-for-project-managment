@@ -30,6 +30,9 @@ public class GreatComputer extends SceneHandler{
         if(ET.getY() < detective.getY()){
             detective.setLocation(detective.getX(), detective.getY() - 8);
         }
+        if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
+            energy = energy - 999;
+        }
         detectiveMoveAnimation(detective);
     }
     //sets the animation loop for the detective

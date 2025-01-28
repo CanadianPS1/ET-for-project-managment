@@ -19,6 +19,7 @@ public class Movement implements KeyListener{
     private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    protected int energy = 9999;
     public Movement(JFrame g){
         game = g;
         System.out.println("Next Screen is : " + nextScreen);
@@ -86,24 +87,27 @@ public class Movement implements KeyListener{
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        if(key == KeyEvent.VK_W){
-            ETMoveAnimation(ET);
-            ET.setLocation(ET.getX(), ET.getY() - 2);
-        }else if(key == KeyEvent.VK_A){
-            ET.setLocation(ET.getX() - 2, ET.getY());
-            ETMoveAnimation(ET);
-        }else if(key == KeyEvent.VK_S){
-            ET.setLocation(ET.getX(), ET.getY() + 2);
-            ETMoveAnimation(ET);
-        }else if(key == KeyEvent.VK_D){
-            ET.setLocation(ET.getX() + 2, ET.getY());
-            ETMoveAnimation(ET);
-        //once var is made we need to add && etInHole into the if statment for the space bar
-        }else if(key == KeyEvent.VK_SPACE){
-            ET.setLocation(ET.getX(), ET.getY() - 2);
-            ETFlyAnimation(ET);
+        if(energy > 0){
+            if(key == KeyEvent.VK_W){
+                ETMoveAnimation(ET);
+                ET.setLocation(ET.getX(), ET.getY() - 2);
+            }else if(key == KeyEvent.VK_A){
+                ET.setLocation(ET.getX() - 2, ET.getY());
+                ETMoveAnimation(ET);
+            }else if(key == KeyEvent.VK_S){
+                ET.setLocation(ET.getX(), ET.getY() + 2);
+                ETMoveAnimation(ET);
+            }else if(key == KeyEvent.VK_D){
+                ET.setLocation(ET.getX() + 2, ET.getY());
+                ETMoveAnimation(ET);
+            //once var is made we need to add && etInHole into the if statment for the space bar
+            }else if(key == KeyEvent.VK_SPACE){
+                ET.setLocation(ET.getX(), ET.getY() - 2);
+                ETFlyAnimation(ET);
+                energy = energy - 18;
+            }
+            energy--;
         }
-        moveAnimationSpot = 0;
         SceneHandler handler = new SceneHandler(game, nextScreen);
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
