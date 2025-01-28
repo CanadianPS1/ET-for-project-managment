@@ -7,9 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class StartMenu implements ActionListener{
-    JFrame game;
-    ImageIcon startScreenIcon;
-    JButton startButton;
+    protected JFrame game;
+    private final ImageIcon startScreenIcon;
+    private final JButton startButton;
     public StartMenu(){
         startScreenIcon = new ImageIcon("seperated sprites\\Screens\\MainMenue.png");
         ImageIcon gameIcon = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");

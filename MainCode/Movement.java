@@ -1,3 +1,4 @@
+//this class controls ETs movement and super classes GreatComputer and ScreenHandler
 package MainCode;
 import java.awt.event.*;
 import java.util.concurrent.Executors;
@@ -6,26 +7,23 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
     protected int nextScreen = 0;
     private int moveAnimationSpot = 0;
-    ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
-    ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
-    ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
-    ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
-    ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
-    ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
-    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
+    private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
+    private final ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
+    private final ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
+    private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
+    private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     public Movement(JFrame g){
         game = g;
         System.out.println("Next Screen is : " + nextScreen);
     }
-
-    public Movement() {
-    }
+    //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(){
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
@@ -41,6 +39,7 @@ public class Movement implements KeyListener{
         Thread aiMoving = new Thread(computerMovment);
         aiMoving.start();
     }
+    //Plays ETs animaton for when hes walking
     public JLabel ETMoveAnimation(JLabel ET){
         switch (moveAnimationSpot) {
             case 0 -> {
@@ -60,9 +59,9 @@ public class Movement implements KeyListener{
                 moveAnimationSpot = 0;
             }
         }
-
         return ET;
     }
+    //Plays ETs second animation for when he flys
     public JLabel ETFlyAnimation(JLabel ET){
         switch (moveAnimationSpot) {
             case 0 -> {
@@ -81,11 +80,9 @@ public class Movement implements KeyListener{
                 ET.setIcon(ETFlyThree);
             }
         }
-
         return ET;
     }
-
- 
+    //these methods are for detecting keypresses then moving ET to those spots
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -107,14 +104,11 @@ public class Movement implements KeyListener{
             ETFlyAnimation(ET);
         }
         moveAnimationSpot = 0;
-
         SceneHandler handler = new SceneHandler(game, nextScreen);
-
         handler.detectLREdge(ET);
         handler.detectUDEdge(ET);
         handler.screenChange();
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
@@ -133,10 +127,4 @@ public class Movement implements KeyListener{
             case KeyEvent.VK_D -> ET.setLocation(ET.getX() + 5, ET.getY());
         }
     }
-
-
-    
-
-    
 }
-    
