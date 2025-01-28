@@ -53,7 +53,6 @@ public class SceneHandler extends Movement {
         }
         else if (direction.equals(this.direction.R)){
             if (strScenePaths[intCurrentX][intCurrentY + 1] == null){
-                return;
             }
             else{
                 background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
@@ -68,7 +67,6 @@ public class SceneHandler extends Movement {
         }
         else if (direction.equals(this.direction.U)){
             if (strScenePaths[intCurrentX + 1][intCurrentY] == null){
-                return;
             }
             else{
                 background.setIcon(new ImageIcon(strScenePaths[intCurrentX + 1][intCurrentY]));
@@ -77,7 +75,6 @@ public class SceneHandler extends Movement {
         }
         else if (direction.equals(this.direction.D)){
             if (strScenePaths[intCurrentX - 1][intCurrentY] == null){
-                return;
             }
             else{
                 background.setIcon(new ImageIcon(strScenePaths[intCurrentX - 1][intCurrentY]));
@@ -92,8 +89,6 @@ public class SceneHandler extends Movement {
         else{
             System.err.println("Error: Screen not found");
         }
-
-
 
     }
 
@@ -110,7 +105,7 @@ public class SceneHandler extends Movement {
         else if (ET.getX() == 300 || ET.getX() == 301){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
-            ET.setLocation(1,ET.getY());
+            //ET.setLocation(1,ET.getY());
             direction = Directions.R;
         }
     }
