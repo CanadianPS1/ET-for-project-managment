@@ -16,7 +16,7 @@ public class SceneHandler extends Movement {
 
     private Directions direction = Directions.N;
 
-    public SceneHandler(JFrame g, int nS){
+    public SceneHandler(JFrame g){
         game = g;
         nextScreen = nS;
             
@@ -28,7 +28,7 @@ public class SceneHandler extends Movement {
         background.setSize(320,210);
 
         background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY]));
-        background.setLocation(0,0);
+
         background.setVisible(true);
 
         game.add(background);
@@ -44,11 +44,11 @@ public class SceneHandler extends Movement {
                     intCurrentY++;
 
                     background.setVisible(true);
+                    background.setLocation(0, 0);
     
                     System.out.println(strScenePaths[intCurrentX][intCurrentY]);
                 }
             } catch (Exception e) {
-                System.err.println("Error: Screen not found");
                 return;
             }
 
@@ -84,10 +84,13 @@ public class SceneHandler extends Movement {
                 System.out.println(intCurrentX);
             }
         }
+        else if (direction.equals(this.direction.N)){
+            return;
+        }
+
         else{
             System.err.println("Error: Screen not found");
             nextScreen = 0;
-
         }
 
         System.out.println("Next Screen is : " + nextScreen);

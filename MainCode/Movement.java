@@ -26,7 +26,11 @@ public class Movement implements KeyListener{
         System.out.println("Next Screen is : " + nextScreen);
     }
     public Movement(){
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 81395098b0dfed64c420f736f2ad2ad77531293d
     }
     //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(){
