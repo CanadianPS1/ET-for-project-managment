@@ -31,7 +31,8 @@ public class SceneHandler extends Movement {
 
         game.add(background);           
     }
-    public void checkTile(int location){
+    public void checkTile(int location, JLabel et){
+        ET = et;
         if(location == 1){
             if(direction.equals("L")){
                 location = 2;
@@ -42,7 +43,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 4;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 2){
             if(direction.equals("L")){
@@ -54,7 +55,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 6;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 3){
             if(direction.equals("L")){
@@ -66,7 +67,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 3;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 4){
             if(direction.equals("L")){
@@ -78,7 +79,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 8;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 5){
             if(direction.equals("L")){
@@ -90,7 +91,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 5;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 6){
             if(direction.equals("L")){
@@ -102,7 +103,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 9;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 7){
             if(direction.equals("L")){
@@ -114,7 +115,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 7;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 8){
             if(direction.equals("L")){
@@ -126,7 +127,7 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 1;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }else if(location == 9){
             if(direction.equals("L")){
@@ -138,11 +139,11 @@ public class SceneHandler extends Movement {
             }else if(direction.equals("D")){
                 location = 2;
             }
-            setTile(location);
+            setTile(location, ET);
 
         }
     }
-    public void setTile(int location){
+    public void setTile(int location, JLabel ET){
         if(location == 1){
             background.setIcon(pit3);
         }else if(location == 2){
@@ -160,6 +161,10 @@ public class SceneHandler extends Movement {
         }else if(location == 9){
             background.setIcon(pit1);
         }
+        game.remove(background);
+        game.remove(ET);
+        game.add(ET);
+        game.add(background);
     }
 
     // detects Left and right edges of the screen
@@ -170,7 +175,7 @@ public class SceneHandler extends Movement {
             System.out.println(ET.getX());
             ET.setLocation(300,ET.getY());
             direction = "L";
-            checkTile(location);
+            checkTile(location, ET);
         }
         // Right edge
         else if (ET.getX() == 300 || ET.getX() == 301){
@@ -178,7 +183,7 @@ public class SceneHandler extends Movement {
             System.out.println(ET.getX());
             ET.setLocation(1,ET.getY());
             direction = "R";
-            checkTile(location);
+            checkTile(location, ET);
         }
     }
 
@@ -190,7 +195,7 @@ public class SceneHandler extends Movement {
             // screenChange(intScreenNum + 1);
             ET.setLocation(ET.getX(),150);
             direction = "U";
-            checkTile(location);
+            checkTile(location, ET);
         }
         // bottom edge
         else if (ET.getY() == 160){
@@ -199,7 +204,7 @@ public class SceneHandler extends Movement {
             System.out.println(ET.getY());
             ET.setLocation(ET.getX(),22);
             direction = "D";
-            checkTile(location);
+            checkTile(location, ET);
         }
     }
 

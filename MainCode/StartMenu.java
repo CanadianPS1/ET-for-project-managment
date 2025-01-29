@@ -38,7 +38,7 @@ public class StartMenu implements ActionListener{
         new Movement(game).ETMoveFirstRun();
 
 
-        new SceneHandler(game).setTile(4);;
+        SceneHandler handler = new SceneHandler(game);
 
     }  
 }

@@ -23,19 +23,21 @@ public class Movement implements KeyListener{
     protected int energy = 9999;
     public Movement(JFrame g){
         game = g;
-        handler = new SceneHandler(game);
+        handler = new SceneHandler(g);
     }
     public Movement(){
     }
     //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(){
         location = 3;
+        
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
         ET.setLocation(100,100);
         game.add(ET);
+        handler.setTile(4, ET);
         GreatComputer detective = new GreatComputer(game);
         Runnable computerMovment = () -> {
             detective.move(ET);
@@ -123,6 +125,7 @@ public class Movement implements KeyListener{
 
         handler.detectLREdge(ET, location);
         handler.detectUDEdge(ET, location);
+        //game.setComponentZOrder(ET, 0);
     }
     @Override
     public void keyReleased(KeyEvent e) {
