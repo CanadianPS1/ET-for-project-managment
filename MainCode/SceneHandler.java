@@ -99,7 +99,7 @@ setTile(location, ET);
             }
             case 7 -> {
             switch (direction) {
-                case "L" -> location = 7;
+                case "L" -> location = 6;
                 case "R" -> location = 3;
                 case "U" -> location = 7;
                 case "D" -> location = 7;
