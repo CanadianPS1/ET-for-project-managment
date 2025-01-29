@@ -11,7 +11,7 @@ public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
     private int moveAnimationSpot = 0;
-    private int location = 4; // this is where ET starts the game
+    private int location; // this is where ET starts the game
     private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
     private final ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
@@ -28,7 +28,8 @@ public class Movement implements KeyListener{
     public Movement(){
     }
     //Makes ET and starts the detectives movement
-    public void ETMoveFirstRun(){        
+    public void ETMoveFirstRun(){    
+        location = 4;    
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
@@ -121,14 +122,12 @@ public class Movement implements KeyListener{
             energy--;
         }
 
-        handler.detectLREdge(ET, location);
-        handler.detectUDEdge(ET, location);
-        //game.setComponentZOrder(ET, 0);
+        location = handler.detectLREdge(ET, location);
+        location = handler.detectUDEdge(ET, location);
     }
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-        // System.out.println("KEY RELEACED: " + key);
         if (key == KeyEvent.VK_W || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_D || key == KeyEvent.VK_SPACE) {
             ET.setIcon(ETIdle);
         }

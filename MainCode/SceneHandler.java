@@ -13,9 +13,9 @@ public class SceneHandler extends Movement {
 
 
 
-    private JLabel background;
+    private final JLabel background;
     private String direction;
-
+    private int location;
     public SceneHandler(JFrame g){
         game = g;     
         background = new JLabel();
@@ -27,137 +27,128 @@ public class SceneHandler extends Movement {
 
         game.add(background);           
     }
-    public void checkTile(int location, JLabel et){
+    public int checkTile(int l, JLabel et){
         ET = et;
-        if(location == 1){
-            if(direction.equals("L")){
-                location = 2;
-            }else if(direction.equals("R")){
-                location = 2;
-            }else if(direction.equals("U")){
-                location = 8;
-            }else if(direction.equals("D")){
-                location = 4;
+        location = l;
+        switch (location) {
+            case 1 -> {
+            switch (direction) {
+                case "L" -> location = 2;
+                case "R" -> location = 2;
+                case "U" -> location = 8;
+                case "D" -> location = 4;
+                default -> {
+                }
             }
-            setTile(location, ET);
-
-        }else if(location == 2){
-            if(direction.equals("L")){
-                location = 1;
-            }else if(direction.equals("R")){
-                location = 1;
-            }else if(direction.equals("U")){
-                location = 9;
-            }else if(direction.equals("D")){
-                location = 6;
+setTile(location, ET);
             }
-            setTile(location, ET);
-
-        }else if(location == 3){
-            if(direction.equals("L")){
-                location = 7;
-            }else if(direction.equals("R")){
-                location = 4;
-            }else if(direction.equals("U")){
-                location = 3;
-            }else if(direction.equals("D")){
-                location = 3;
+            case 2 -> {
+            switch (direction) {
+                case "L" -> location = 1;
+                case "R" -> location = 1;
+                case "U" -> location = 9;
+                case "D" -> location = 6;
+                default -> {
+                }
             }
-            setTile(location, ET);
-
-        }else if(location == 4){
-            if(direction.equals("L")){
-                location = 3;
-            }else if(direction.equals("R")){
-                location = 5;
-            }else if(direction.equals("U")){
-                location = 1;
-            }else if(direction.equals("D")){
-                location = 8;
+setTile(location, ET);
             }
-            setTile(location, ET);
-
-        }else if(location == 5){
-            if(direction.equals("L")){
-                location = 4;
-            }else if(direction.equals("R")){
-                location = 6;
-            }else if(direction.equals("U")){
-                location = 5;
-            }else if(direction.equals("D")){
-                location = 5;
+            case 3 -> {
+            switch (direction) {
+                case "L" -> location = 7;
+                case "R" -> location = 4;
+                case "U" -> location = 3;
+                case "D" -> location = 3;
+                default -> {
+                }
             }
-            setTile(location, ET);
-
-        }else if(location == 6){
-            if(direction.equals("L")){
-                location = 5;
-            }else if(direction.equals("R")){
-                location = 7;
-            }else if(direction.equals("U")){
-                location = 2;
-            }else if(direction.equals("D")){
-                location = 9;
+setTile(location, ET);
             }
-            setTile(location, ET);
-
-        }else if(location == 7){
-            if(direction.equals("L")){
-                location = 7;
-            }else if(direction.equals("R")){
-                location = 3;
-            }else if(direction.equals("U")){
-                location = 7;
-            }else if(direction.equals("D")){
-                location = 7;
+            case 4 -> {
+            switch (direction) {
+                case "L" -> location = 3;
+                case "R" -> location = 5;
+                case "U" -> location = 1;
+                case "D" -> location = 8;
+                default -> {
+                }
             }
-            setTile(location, ET);
-
-        }else if(location == 8){
-            if(direction.equals("L")){
-                location = 9;
-            }else if(direction.equals("R")){
-                location = 9;
-            }else if(direction.equals("U")){
-                location = 4;
-            }else if(direction.equals("D")){
-                location = 1;
+setTile(location, ET);
             }
-            setTile(location, ET);
-
-        }else if(location == 9){
-            if(direction.equals("L")){
-                location = 8;
-            }else if(direction.equals("R")){
-                location = 8;
-            }else if(direction.equals("U")){
-                location = 6;
-            }else if(direction.equals("D")){
-                location = 2;
+            case 5 -> {
+            switch (direction) {
+                case "L" -> location = 4;
+                case "R" -> location = 6;
+                case "U" -> location = 5;
+                case "D" -> location = 5;
+                default -> {
+                }
             }
-            setTile(location, ET);
-
+setTile(location, ET);
+            }
+            case 6 -> {
+            switch (direction) {
+                case "L" -> location = 5;
+                case "R" -> location = 7;
+                case "U" -> location = 2;
+                case "D" -> location = 9;
+                default -> {
+                }
+            }
+setTile(location, ET);
+            }
+            case 7 -> {
+            switch (direction) {
+                case "L" -> location = 7;
+                case "R" -> location = 3;
+                case "U" -> location = 7;
+                case "D" -> location = 7;
+                default -> {
+                }
+            }
+setTile(location, ET);
+            }
+            case 8 -> {
+            switch (direction) {
+                case "L" -> location = 9;
+                case "R" -> location = 9;
+                case "U" -> location = 4;
+                case "D" -> location = 1;
+                default -> {
+                }
+            }
+setTile(location, ET);
+            }
+            case 9 -> {
+            switch (direction) {
+                case "L" -> location = 8;
+                case "R" -> location = 8;
+                case "U" -> location = 6;
+                case "D" -> location = 2;
+                default -> {
+                }
+            }
+setTile(location, ET);
+            }
+            default -> {
+            }
         }
+        return location;
     }
-    public void setTile(int location, JLabel ET){
-        if(location == 1){
-            background.setIcon(pit3);
-        }else if(location == 2){
-            background.setIcon(pit3);
-        }else if(location == 3){
-            background.setIcon(pit2);
-        }else if(location == 4){
-            background.setIcon(forest);
-        }else if(location == 5){
-            background.setIcon(pit4);
-        }else if(location == 6){
-            background.setIcon(DC);
-        }else if(location == 7){
-            background.setIcon(pit2);
-        }else if(location == 8){
-            background.setIcon(pit1);
-        }else if(location == 9){
-            background.setIcon(pit1);
+    public void setTile(int l, JLabel ET){
+        location = l;
+        switch (location) {
+            case 1 -> background.setIcon(pit3);
+            case 2 -> background.setIcon(pit3);
+            case 3 -> background.setIcon(pit2);
+            case 4 -> background.setIcon(forest);
+            case 5 -> background.setIcon(pit4);
+            case 6 -> background.setIcon(DC);
+            case 7 -> background.setIcon(pit2);
+            case 8 -> background.setIcon(pit1);
+            case 9 -> background.setIcon(pit1);
+            default -> {
+            }
         }
         game.remove(background);
         game.remove(ET);
@@ -166,7 +157,8 @@ public class SceneHandler extends Movement {
     }
 
     // detects Left and right edges of the screen
-    public void detectLREdge(JLabel ET, int location){
+    public int detectLREdge(JLabel ET, int l){
+        location = l;
         // Left edge
         if (ET.getX() == -2 || ET.getX() == -1){
             System.out.println("Edge Detected");
@@ -183,9 +175,11 @@ public class SceneHandler extends Movement {
             direction = "R";
             checkTile(location, ET);
         }
+        return location;
     }
 
-    public void detectUDEdge(JLabel ET, int location){
+    public int detectUDEdge(JLabel ET, int l){
+        location = l;
         // Top edge
         if (ET.getY() == 20){
             System.out.println("Edge Detected");
@@ -204,6 +198,7 @@ public class SceneHandler extends Movement {
             direction = "D";
             checkTile(location, ET);
         }
+        return location;
     }
 
 

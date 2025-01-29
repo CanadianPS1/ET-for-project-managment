@@ -38,6 +38,7 @@ public class StartMenu implements ActionListener{
         new Movement(game).ETMoveFirstRun();
 
 
+        @SuppressWarnings("unused")
         SceneHandler handler = new SceneHandler(game);
 
     }  
