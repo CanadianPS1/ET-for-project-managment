@@ -145,7 +145,7 @@ public class SceneHandler extends Movement {
     }
     public void setTile(int location, JLabel ET){
         if(location == 1){
-            background.setIcon(pit3);
+            background.setIcon(pit1);
         }else if(location == 2){
             background.setIcon(pit3);
         }else if(location == 3){
