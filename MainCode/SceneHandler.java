@@ -13,10 +13,6 @@ public class SceneHandler extends Movement {
 
 
 
-    
-
-    private int intCurrentX = 1;
-    private int intCurrentY = 1;
     private JLabel background;
     private String direction;
 
@@ -145,7 +141,7 @@ public class SceneHandler extends Movement {
     }
     public void setTile(int location, JLabel ET){
         if(location == 1){
-            background.setIcon(pit1);
+            background.setIcon(pit3);
         }else if(location == 2){
             background.setIcon(pit3);
         }else if(location == 3){
@@ -156,6 +152,8 @@ public class SceneHandler extends Movement {
             background.setIcon(pit4);
         }else if(location == 6){
             background.setIcon(DC);
+        }else if(location == 7){
+            background.setIcon(pit2);
         }else if(location == 8){
             background.setIcon(pit1);
         }else if(location == 9){
@@ -172,7 +170,7 @@ public class SceneHandler extends Movement {
         // Left edge
         if (ET.getX() == -2 || ET.getX() == -1){
             System.out.println("Edge Detected");
-            System.out.println(ET.getX());
+            //System.out.println(ET.getX());
             ET.setLocation(300,ET.getY());
             direction = "L";
             checkTile(location, ET);
@@ -180,7 +178,7 @@ public class SceneHandler extends Movement {
         // Right edge
         else if (ET.getX() == 300 || ET.getX() == 301){
             System.out.println("Edge Detected");
-            System.out.println(ET.getX());
+            //System.out.println(ET.getX());
             ET.setLocation(1,ET.getY());
             direction = "R";
             checkTile(location, ET);

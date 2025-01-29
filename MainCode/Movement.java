@@ -11,7 +11,7 @@ public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
     private int moveAnimationSpot = 0;
-    private int location;
+    private int location = 4; // this is where ET starts the game
     private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
     private final ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
@@ -28,16 +28,14 @@ public class Movement implements KeyListener{
     public Movement(){
     }
     //Makes ET and starts the detectives movement
-    public void ETMoveFirstRun(){
-        location = 3;
-        
+    public void ETMoveFirstRun(){        
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
         ET.setLocation(100,100);
         game.add(ET);
-        handler.setTile(4, ET);
+        handler.setTile(location, ET);
         GreatComputer detective = new GreatComputer(game);
         Runnable computerMovment = () -> {
             detective.move(ET);
