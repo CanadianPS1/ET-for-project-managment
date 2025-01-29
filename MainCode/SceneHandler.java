@@ -4,120 +4,193 @@ import javax.swing.*;
 
 
 public class SceneHandler extends Movement {
+    ImageIcon pit3 = new ImageIcon("seperated sprites\\Screens\\Pits03.png");
+    ImageIcon pit2 = new ImageIcon("seperated sprites\\Screens\\Pits02.png");
+    ImageIcon forest = new ImageIcon("seperated sprites\\Screens\\Forest.png");
+    ImageIcon pit4 = new ImageIcon("seperated sprites\\Screens\\Pits04.png");
+    ImageIcon pit1 = new ImageIcon("seperated sprites\\Screens\\Pits01.png");
+    ImageIcon DC = new ImageIcon("seperated sprites\\Screens\\DC.png");
 
-    String[][] strScenePaths = new String[][]{
-        {null,                                     "seperated sprites\\Screens\\Pits03.png", null,                                     "seperated sprites\\Screens\\Pits03.png",null},
-        {"seperated sprites\\Screens\\Pits02.png", "seperated sprites\\Screens\\Forest.png", "seperated sprites\\Screens\\Pits04.png", "seperated sprites\\Screens\\DC.png","seperated sprites\\Screens\\Pits02.png"},
-        {null,                                     "seperated sprites\\Screens\\Pits01.png", null,                                     "seperated sprites\\Screens\\Pits01.png",null}
-    };
+
+
+    
 
     private int intCurrentX = 1;
     private int intCurrentY = 1;
-
-    private Directions direction = Directions.N;
+    private JLabel background;
+    private String direction;
 
     public SceneHandler(JFrame g){
-        game = g;                
-    }
-
-    public void screenChange(){
-        JLabel background = new JLabel();
+        game = g;     
+        background = new JLabel();
 
         background.setSize(320,210);
 
-        background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY]));
 
         background.setVisible(true);
 
-        game.add(background);
-
-        // direction = left
-        if (direction.equals(this.direction.L)){
-            try {
-                if (strScenePaths[intCurrentX][intCurrentY - 1].equals(null)){
-                }
-                else{
-                    background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY - 1]));
-                    intCurrentY--;
-
-                    background.setVisible(true);
-                    background.setLocation(0, 0);
-    
-                    System.out.println(strScenePaths[intCurrentX][intCurrentY]);
-                }
-            } catch (Exception e) {
-                return;
+        game.add(background);           
+    }
+    public void checkTile(int location){
+        if(location == 1){
+            if(direction.equals("L")){
+                location = 2;
+            }else if(direction.equals("R")){
+                location = 2;
+            }else if(direction.equals("U")){
+                location = 8;
+            }else if(direction.equals("D")){
+                location = 4;
             }
+            setTile(location);
 
-            
+        }else if(location == 2){
+            if(direction.equals("L")){
+                location = 1;
+            }else if(direction.equals("R")){
+                location = 1;
+            }else if(direction.equals("U")){
+                location = 9;
+            }else if(direction.equals("D")){
+                location = 6;
+            }
+            setTile(location);
+
+        }else if(location == 3){
+            if(direction.equals("L")){
+                location = 7;
+            }else if(direction.equals("R")){
+                location = 4;
+            }else if(direction.equals("U")){
+                location = 3;
+            }else if(direction.equals("D")){
+                location = 3;
+            }
+            setTile(location);
+
+        }else if(location == 4){
+            if(direction.equals("L")){
+                location = 3;
+            }else if(direction.equals("R")){
+                location = 5;
+            }else if(direction.equals("U")){
+                location = 1;
+            }else if(direction.equals("D")){
+                location = 8;
+            }
+            setTile(location);
+
+        }else if(location == 5){
+            if(direction.equals("L")){
+                location = 4;
+            }else if(direction.equals("R")){
+                location = 6;
+            }else if(direction.equals("U")){
+                location = 5;
+            }else if(direction.equals("D")){
+                location = 5;
+            }
+            setTile(location);
+
+        }else if(location == 6){
+            if(direction.equals("L")){
+                location = 5;
+            }else if(direction.equals("R")){
+                location = 7;
+            }else if(direction.equals("U")){
+                location = 2;
+            }else if(direction.equals("D")){
+                location = 9;
+            }
+            setTile(location);
+
+        }else if(location == 7){
+            if(direction.equals("L")){
+                location = 7;
+            }else if(direction.equals("R")){
+                location = 3;
+            }else if(direction.equals("U")){
+                location = 7;
+            }else if(direction.equals("D")){
+                location = 7;
+            }
+            setTile(location);
+
+        }else if(location == 8){
+            if(direction.equals("L")){
+                location = 9;
+            }else if(direction.equals("R")){
+                location = 9;
+            }else if(direction.equals("U")){
+                location = 4;
+            }else if(direction.equals("D")){
+                location = 1;
+            }
+            setTile(location);
+
+        }else if(location == 9){
+            if(direction.equals("L")){
+                location = 8;
+            }else if(direction.equals("R")){
+                location = 8;
+            }else if(direction.equals("U")){
+                location = 6;
+            }else if(direction.equals("D")){
+                location = 2;
+            }
+            setTile(location);
+
         }
-        else if (direction.equals(this.direction.R)){
-            if (strScenePaths[intCurrentX][intCurrentY + 1] == null){
-            }
-            else{
-                background.setIcon(new ImageIcon(strScenePaths[intCurrentX][intCurrentY + 1]));
-                intCurrentY++;
-
-                background.setVisible(true);
-                background.setLocation(0, 0);
-
-                System.out.println(strScenePaths[intCurrentX][intCurrentY]);
-            }
-
+    }
+    public void setTile(int location){
+        if(location == 1){
+            background.setIcon(pit3);
+        }else if(location == 2){
+            background.setIcon(pit3);
+        }else if(location == 3){
+            background.setIcon(pit2);
+        }else if(location == 4){
+            background.setIcon(forest);
+        }else if(location == 5){
+            background.setIcon(pit4);
+        }else if(location == 6){
+            background.setIcon(DC);
+        }else if(location == 8){
+            background.setIcon(pit1);
+        }else if(location == 9){
+            background.setIcon(pit1);
         }
-        else if (direction.equals(this.direction.U)){
-            if (strScenePaths[intCurrentX + 1][intCurrentY] == null){
-            }
-            else{
-                background.setIcon(new ImageIcon(strScenePaths[intCurrentX + 1][intCurrentY]));
-                intCurrentX++;
-            }
-        }
-        else if (direction.equals(this.direction.D)){
-            if (strScenePaths[intCurrentX - 1][intCurrentY] == null){
-            }
-            else{
-                background.setIcon(new ImageIcon(strScenePaths[intCurrentX - 1][intCurrentY]));
-                intCurrentX--;
-
-                System.out.println(intCurrentX);
-            }
-        }
-        else if (direction.equals(this.direction.N)){
-            //does nothing
-        }
-        else{
-            System.err.println("Error: Screen not found");
-        }
-
     }
 
     // detects Left and right edges of the screen
-    public void detectLREdge(JLabel ET){
+    public void detectLREdge(JLabel ET, int location){
         // Left edge
         if (ET.getX() == -2 || ET.getX() == -1){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
             ET.setLocation(300,ET.getY());
-            direction = Directions.L;
+            direction = "L";
+            checkTile(location);
         }
         // Right edge
         else if (ET.getX() == 300 || ET.getX() == 301){
             System.out.println("Edge Detected");
             System.out.println(ET.getX());
-            //ET.setLocation(1,ET.getY());
-            direction = Directions.R;
+            ET.setLocation(1,ET.getY());
+            direction = "R";
+            checkTile(location);
         }
     }
 
-    public void detectUDEdge(JLabel ET){
+    public void detectUDEdge(JLabel ET, int location){
         // Top edge
         if (ET.getY() == 20){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
             // screenChange(intScreenNum + 1);
             ET.setLocation(ET.getX(),150);
-            direction = Directions.U;
+            direction = "U";
+            checkTile(location);
         }
         // bottom edge
         else if (ET.getY() == 160){
@@ -125,7 +198,8 @@ public class SceneHandler extends Movement {
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getY());
             ET.setLocation(ET.getX(),22);
-            direction = Directions.D;
+            direction = "D";
+            checkTile(location);
         }
     }
 
