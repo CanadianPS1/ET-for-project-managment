@@ -82,14 +82,11 @@ public class GreatComputer extends SceneHandler{
         return detective;
     }
     public void detectiveGrab(JLabel ET, SceneHandler handler){
-        //ET = et;
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             running = true;
             if(location == 4){
                 forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                //he will have to go right for 30s
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -98,13 +95,8 @@ public class GreatComputer extends SceneHandler{
                 if(!running){
                     count = 0;
                 }
-                
             }else if(location == 3){
-                //forceRight(ET);
-                //he will have to go right for 30s
                 forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                //he will have to go right for 30s
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -114,9 +106,7 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 5){
-                
                 forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -125,14 +115,12 @@ public class GreatComputer extends SceneHandler{
                 if(!running){
                     count = 0;
                 }
-                //he will have to go right for 15s
             }else if(location == 6){
                 Movement.setCanMove(true);
                 running = false;
                 location = 6;
             }else if(location == 7){
                 forceRight(ET, handler, 26, ET.getX() - 10, ET.getY());
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -142,9 +130,7 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 1){
-                //he will have to go down for 15s then right for 30s
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5);
-                
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5); 
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -154,9 +140,7 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 2){
-                //he will have to go down for 15s
                 forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10);
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -166,9 +150,7 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 8){
-                //he will have to go up for 15s then right for 30s
                 forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5);
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -178,9 +160,7 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 9){
-                //he will have to up for 15s
                 forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10);
-                
                 forcingRight.start();
                 if(count == 26){
                     running = false;
@@ -210,10 +190,7 @@ public class GreatComputer extends SceneHandler{
                     Movement.setCanMove(true);
                 }
             }
-            
-            
         };
-        //scheduler.scheduleAtFixedRate(forceRight, 1, 1000, TimeUnit.MILLISECONDS);
         forcingRight = new Thread(forceRight);
     }
 }
