@@ -43,7 +43,7 @@ public class Movement implements KeyListener{
         Runnable computerMovment = () -> {
             detective.move(ET, handler);
         };
-        scheduler.scheduleAtFixedRate(computerMovment, 5, 500, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
         Thread aiMoving = new Thread(computerMovment);
         aiMoving.start();
     }
