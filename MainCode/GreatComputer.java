@@ -85,92 +85,93 @@ public class GreatComputer extends SceneHandler{
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             running = true;
-            if(location == 4){
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
+            switch (location) {
+                case 4 -> {
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
+                }
+                case 3 -> {
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
+                }
+                case 5 -> {
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
+                }
+                case 6 -> {
                     Movement.setCanMove(true);
-                }
-                if(!running){
-                    count = 0;
-                }
-            }else if(location == 3){
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                forcingRight.start();
-                if(count == 26){
                     running = false;
-                    Movement.setCanMove(true);
+                    location = 6;
                 }
-                if(!running){
-                    count = 0;
+                case 7 -> {
+                    forceRight(ET, handler, 26, ET.getX() - 10, ET.getY());
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
                 }
-            }else if(location == 5){
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
+                case 1 -> {
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5);
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
                 }
-                if(!running){
-                    count = 0;
+                case 2 -> {
+                    forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10);
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
                 }
-            }else if(location == 6){
-                Movement.setCanMove(true);
-                running = false;
-                location = 6;
-            }else if(location == 7){
-                forceRight(ET, handler, 26, ET.getX() - 10, ET.getY());
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
+                case 8 -> {
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5);
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
                 }
-                if(!running){
-                    count = 0;
+                case 9 -> {
+                    forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10);
+                    forcingRight.start();
+                    if(count == 26){
+                        running = false;
+                        Movement.setCanMove(true);
+                    }   if(!running){
+                        count = 0;
+                    }
                 }
-            }else if(location == 1){
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5); 
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
-                }
-                if(!running){
-                    count = 0;
-                }
-            }else if(location == 2){
-                forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10);
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
-                }
-                if(!running){
-                    count = 0;
-                }
-            }else if(location == 8){
-                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5);
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
-                }
-                if(!running){
-                    count = 0;
-                }
-            }else if(location == 9){
-                forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10);
-                forcingRight.start();
-                if(count == 26){
-                    running = false;
-                    Movement.setCanMove(true);
-                }
-                if(!running){
-                    count = 0;
-                }
-            }else{
-                System.err.println("Error: invalid tile");
+                default -> System.err.println("Error: invalid tile");
             }
         }
     }
