@@ -16,7 +16,7 @@ public class SceneHandler extends Movement {
     private final JLabel background;
     private String direction;
     private int location;
-    public SceneHandler(JFrame g){
+    public SceneHandler(JFrame g, int e){
         game = g;     
         background = new JLabel();
 
@@ -150,8 +150,10 @@ public class SceneHandler extends Movement {
             default -> {
             }
         }
+        //game.remove(energyUI);
         game.remove(background);
         game.remove(ET);
+        //game.add(energyUI);
         game.add(ET);
         game.add(background);
     }

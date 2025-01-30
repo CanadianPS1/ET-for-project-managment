@@ -13,8 +13,8 @@ public class GreatComputer extends SceneHandler{
     private Thread forcingRight;
     private int count = 1;
     private boolean running = true;
-    public GreatComputer(JFrame g, SceneHandler handler) {
-        super(g);
+    public GreatComputer(JFrame g, SceneHandler handler, int e) {
+        super(g, e);
         detective = new JLabel(detectiveMove1);
         detective.setSize(12,28);
         detective.setLocation(250,30);

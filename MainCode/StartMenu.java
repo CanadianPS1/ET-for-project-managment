@@ -39,18 +39,19 @@ public class StartMenu implements ActionListener{
     //it disables its self then makes ET and all that jazz
     @Override
     public void actionPerformed(ActionEvent e){
+        int energy = 9999;
         startButton.setVisible(false);
         game.remove(startButton);
         game.update(game.getGraphics());
         System.out.println("Start Button Pressed");
-        new Movement(game).ETMoveFirstRun();
+        new Movement(game, energy).ETMoveFirstRun(energy);
 
         SoundHandler soundHandler = new SoundHandler();
         soundHandler.sounndOff(strSound);
 
 
         @SuppressWarnings("unused")
-        SceneHandler handler = new SceneHandler(game);
+        SceneHandler handler = new SceneHandler(game, energy);
 
     }  
 }
