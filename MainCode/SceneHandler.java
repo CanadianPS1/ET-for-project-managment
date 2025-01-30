@@ -171,7 +171,7 @@ public class SceneHandler extends Movement {
         else if (ET.getX() >= 275){
             System.out.println("Edge Detected");
             //System.out.println(ET.getX());
-            ET.setLocation(22,ET.getY());
+            ET.setLocation(36,ET.getY());
             direction = "R";
             checkTile(location, ET);
         }

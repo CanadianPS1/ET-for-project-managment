@@ -39,9 +39,7 @@ public class GreatComputer extends SceneHandler{
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
             energy = energy - 999;
-            if(!running){
-                count = 0;
-            }
+            
             detectiveGrab(ET, handler);
         }
         detectiveMoveAnimation(detective);
@@ -78,7 +76,7 @@ public class GreatComputer extends SceneHandler{
             Movement.setCanMove(false);
             running = true;
             if(location == 4){
-                forceRight(ET, handler);
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
                 //he will have to go right for 30s
                 
                 forcingRight.start();
@@ -86,18 +84,52 @@ public class GreatComputer extends SceneHandler{
                     running = false;
                     Movement.setCanMove(true);
                 }
+                if(!running){
+                    count = 0;
+                }
                 
             }else if(location == 3){
                 //forceRight(ET);
                 //he will have to go right for 30s
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                //he will have to go right for 30s
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else if(location == 5){
-                //forceRight(ET);
-
+                
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
                 //he will have to go right for 15s
+            }else if(location == 6){
+                Movement.setCanMove(true);
+                running = false;
+                location = 6;
             }else if(location == 7){
-                //forceRight(ET);
-
-                //he will have to go left for 15s
+                forceRight(ET, handler, 26, ET.getX() - 10, ET.getY());
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else if(location == 1){
                 //forceRight(ET);
                 //he will have to go down for 15s then right for 30s
@@ -115,15 +147,21 @@ public class GreatComputer extends SceneHandler{
             }
         }
     }
-    public void forceRight(JLabel ET, SceneHandler handler){
+    public void forceRight(JLabel ET, SceneHandler handler, int amountMoved, int ETX, int ETY){
         Runnable forceRight = () -> {
-            if(count < 26 && running){
+            if(count < amountMoved && running){
                 System.out.println(count);
-                ET.setLocation(ET.getX() + 10, ET.getY());
+                ET.setLocation(ETX, ETY);
                 detective.setLocation(ET.getX() - 10, ET.getY());
                 count += 1;
-                handler.detectLREdge(ET, location);
-                handler.detectUDEdge(ET, location);
+                location = handler.detectLREdge(ET, location);
+                location = handler.detectUDEdge(ET, location);
+                System.out.println("location: " + location);
+                if(location == 6){
+                    running = false;
+                    count = amountMoved;
+                    Movement.setCanMove(true);
+                }
             }
             
             
