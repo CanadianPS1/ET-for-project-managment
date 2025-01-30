@@ -4,6 +4,7 @@ import java.io.File;
 import javax.sound.sampled.*;
 public class SoundHandler {
 
+    @SuppressWarnings({"CallToPrintStackTrace", "UseSpecificCatch"})
     public Clip soundControl(String strPath, boolean blnIsOn){
 
         try {
@@ -20,6 +21,7 @@ public class SoundHandler {
 
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public void sounndOff(Clip clip){
         try {
             clip.close();
