@@ -46,14 +46,23 @@ public class GreatComputer extends SceneHandler{
     }
     //sets the animation loop for the detective
     public JLabel detectiveMoveAnimation(JLabel detective){
+
+        String strSoundPath;
+        
+        SoundHandler soundHandler = new SoundHandler();
+
         switch (moveAnimationSpot) {
             case 0 -> {
                 detective.setIcon(detectiveMove1);
                 moveAnimationSpot = 1;
+                strSoundPath = "Sounds\\EnemyWalk1.wav";
+                soundHandler.soundControl(strSoundPath, true);
             }
             case 1 -> {
                 detective.setIcon(detectiveMove2);
                 moveAnimationSpot = 2;
+                strSoundPath = "Sounds\\EnemyWalk2.wav";
+                soundHandler.soundControl(strSoundPath, true);
             }
             case 2 ->{
                 detective.setIcon(detectiveMove3);
@@ -66,6 +75,8 @@ public class GreatComputer extends SceneHandler{
             default -> {
                 detective.setIcon(detectiveMove1);
                 moveAnimationSpot = 0;
+                strSoundPath = "Sounds\\EnemyWalk1.wav";
+                soundHandler.soundControl(strSoundPath, true);
             }
         }
         return detective;
