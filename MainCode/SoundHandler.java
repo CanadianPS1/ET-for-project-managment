@@ -10,7 +10,7 @@ public class SoundHandler {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(strPath).getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
             return clip;
         } catch (Exception e) {
             System.out.println("Error with playing sound.");
