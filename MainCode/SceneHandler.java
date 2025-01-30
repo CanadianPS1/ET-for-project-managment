@@ -201,7 +201,9 @@ setTile(location, ET);
         return location;
     }
 
-
+    public int getLocation(){
+        return location;
+    }
 
 
 
