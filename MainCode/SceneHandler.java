@@ -160,18 +160,18 @@ setTile(location, ET);
     public int detectLREdge(JLabel ET, int l){
         location = l;
         // Left edge
-        if (ET.getX() == -2 || ET.getX() == -1){
+        if (ET.getX() <= 20 ){
             System.out.println("Edge Detected");
             //System.out.println(ET.getX());
-            ET.setLocation(300,ET.getY());
+            ET.setLocation(270,ET.getY());
             direction = "L";
             checkTile(location, ET);
         }
         // Right edge
-        else if (ET.getX() == 300 || ET.getX() == 301){
+        else if (ET.getX() >= 275){
             System.out.println("Edge Detected");
             //System.out.println(ET.getX());
-            ET.setLocation(1,ET.getY());
+            ET.setLocation(22,ET.getY());
             direction = "R";
             checkTile(location, ET);
         }
@@ -181,20 +181,20 @@ setTile(location, ET);
     public int detectUDEdge(JLabel ET, int l){
         location = l;
         // Top edge
-        if (ET.getY() == 20){
+        if (ET.getY() <= 20){
             System.out.println("Edge Detected");
             System.out.println(ET.getY());
             // screenChange(intScreenNum + 1);
-            ET.setLocation(ET.getX(),150);
+            ET.setLocation(ET.getX(),140);
             direction = "U";
             checkTile(location, ET);
         }
         // bottom edge
-        else if (ET.getY() == 160){
+        else if (ET.getY() >= 150){
             System.out.println("Edge Detected");
             // screenChange(intScreenNum - 1);
             System.out.println(ET.getY());
-            ET.setLocation(ET.getX(),22);
+            ET.setLocation(ET.getX(),30);
             direction = "D";
             checkTile(location, ET);
         }
