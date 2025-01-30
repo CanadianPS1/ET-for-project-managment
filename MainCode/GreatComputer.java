@@ -21,7 +21,6 @@ public class GreatComputer extends SceneHandler{
         detective.setVisible(true);
         game.add(detective);
         location = handler.getLocation();
-        long startTime = System.nanoTime();
     }
     //this checks and compares ets location with the detective then moves the detective tword him
     public void move(JLabel ET, SceneHandler handler){
@@ -40,6 +39,9 @@ public class GreatComputer extends SceneHandler{
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
             energy = energy - 999;
+            if(!running){
+                count = 0;
+            }
             detectiveGrab(ET, handler);
         }
         detectiveMoveAnimation(detective);
@@ -74,6 +76,7 @@ public class GreatComputer extends SceneHandler{
         //ET = et;
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
+            running = true;
             if(location == 4){
                 forceRight(ET, handler);
                 //he will have to go right for 30s

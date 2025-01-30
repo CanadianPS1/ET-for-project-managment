@@ -157,7 +157,7 @@ public class Movement implements KeyListener{
                 case KeyEvent.VK_D -> ET.setLocation(ET.getX() + 5, ET.getY());
             }
         }
-        public static void setCanMove(boolean cn){
-            canMove = cn;
+        public static void setCanMove(boolean cm){
+            canMove = cm;
     }
 }
