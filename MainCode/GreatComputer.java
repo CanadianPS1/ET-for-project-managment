@@ -142,17 +142,53 @@ public class GreatComputer extends SceneHandler{
                     count = 0;
                 }
             }else if(location == 1){
-                //forceRight(ET);
                 //he will have to go down for 15s then right for 30s
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5);
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else if(location == 2){
-                //forceRight(ET);
                 //he will have to go down for 15s
+                forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10);
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else if(location == 8){
-                //forceRight(ET);
                 //he will have to go up for 15s then right for 30s
+                forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5);
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else if(location == 9){
-                //forceRight(ET);
                 //he will have to up for 15s
+                forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10);
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                if(!running){
+                    count = 0;
+                }
             }else{
                 System.err.println("Error: invalid tile");
             }
