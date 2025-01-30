@@ -109,7 +109,7 @@ public class Movement implements KeyListener{
         @Override
         public void keyPressed(KeyEvent e) {
             int key = e.getKeyCode();
-            if(energy > 0 && canMove){
+            if(canMove){
                 switch (key) {
                     case KeyEvent.VK_W -> {
                         ETMoveAnimation(ET);

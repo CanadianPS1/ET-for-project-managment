@@ -8,7 +8,11 @@ public class GreatComputer extends SceneHandler{
     private final ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
     private int moveAnimationSpot = 0;
     protected JLabel detective;
+    //private JLabel ET;
     private int location;
+    private Thread forcingRight;
+    private int count = 1;
+    private boolean running = true;
     public GreatComputer(JFrame g, SceneHandler handler) {
         super(g);
         detective = new JLabel(detectiveMove1);
@@ -17,6 +21,7 @@ public class GreatComputer extends SceneHandler{
         detective.setVisible(true);
         game.add(detective);
         location = handler.getLocation();
+        long startTime = System.nanoTime();
     }
     //this checks and compares ets location with the detective then moves the detective tword him
     public void move(JLabel ET, SceneHandler handler){
@@ -35,7 +40,7 @@ public class GreatComputer extends SceneHandler{
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
             energy = energy - 999;
-            detectiveGrab(ET);
+            detectiveGrab(ET, handler);
         }
         detectiveMoveAnimation(detective);
     }
@@ -65,28 +70,62 @@ public class GreatComputer extends SceneHandler{
         }
         return detective;
     }
-    public void detectiveGrab(JLabel ET){
+    public void detectiveGrab(JLabel ET, SceneHandler handler){
+        //ET = et;
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             if(location == 4){
+                forceRight(ET, handler);
                 //he will have to go right for 30s
+                
+                forcingRight.start();
+                if(count == 26){
+                    running = false;
+                    Movement.setCanMove(true);
+                }
+                
             }else if(location == 3){
+                //forceRight(ET);
                 //he will have to go right for 30s
             }else if(location == 5){
+                //forceRight(ET);
+
                 //he will have to go right for 15s
             }else if(location == 7){
+                //forceRight(ET);
+
                 //he will have to go left for 15s
             }else if(location == 1){
+                //forceRight(ET);
                 //he will have to go down for 15s then right for 30s
             }else if(location == 2){
+                //forceRight(ET);
                 //he will have to go down for 15s
             }else if(location == 8){
+                //forceRight(ET);
                 //he will have to go up for 15s then right for 30s
             }else if(location == 9){
+                //forceRight(ET);
                 //he will have to up for 15s
             }else{
                 System.err.println("Error: invalid tile");
             }
         }
+    }
+    public void forceRight(JLabel ET, SceneHandler handler){
+        Runnable forceRight = () -> {
+            if(count < 26 && running){
+                System.out.println(count);
+                ET.setLocation(ET.getX() + 10, ET.getY());
+                detective.setLocation(ET.getX() - 10, ET.getY());
+                count += 1;
+                handler.detectLREdge(ET, location);
+                handler.detectUDEdge(ET, location);
+            }
+            
+            
+        };
+        //scheduler.scheduleAtFixedRate(forceRight, 1, 1000, TimeUnit.MILLISECONDS);
+        forcingRight = new Thread(forceRight);
     }
 }

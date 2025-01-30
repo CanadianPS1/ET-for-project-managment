@@ -1,6 +1,5 @@
 package MainCode;
 
-import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 
@@ -41,7 +40,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 2 -> {
             switch (direction) {
@@ -52,7 +51,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 3 -> {
             switch (direction) {
@@ -63,7 +62,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 4 -> {
             switch (direction) {
@@ -74,7 +73,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 5 -> {
             switch (direction) {
@@ -85,7 +84,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 6 -> {
             switch (direction) {
@@ -96,7 +95,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 7 -> {
             switch (direction) {
@@ -107,7 +106,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 8 -> {
             switch (direction) {
@@ -118,7 +117,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             case 9 -> {
             switch (direction) {
@@ -129,7 +128,7 @@ setTile(location, ET);
                 default -> {
                 }
             }
-setTile(location, ET);
+        setTile(location, ET);
             }
             default -> {
             }
