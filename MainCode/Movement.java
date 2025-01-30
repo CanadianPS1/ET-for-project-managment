@@ -30,7 +30,7 @@ public class Movement implements KeyListener{
     }
     //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(){    
-        location = 4;    
+        location = 4;
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
