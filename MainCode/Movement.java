@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,6 +22,7 @@ public class Movement implements KeyListener{
     protected SceneHandler handler;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     protected int energy = 9999;
+
     public Movement(JFrame g){
         game = g;
         handler = new SceneHandler(g);
@@ -47,24 +49,38 @@ public class Movement implements KeyListener{
     }
     //Plays ETs animaton for when hes walking
     public JLabel ETMoveAnimation(JLabel ET){
+
+        Clip clip = null;
+        String strSoundPath;
+        
+        SoundHandler soundHandler = new SoundHandler();
+
+
         switch (moveAnimationSpot) {
             case 0 -> {
                 ET.setIcon(ETMoveOne);
                 moveAnimationSpot = 1;
+                strSoundPath = "Sounds\\ETWalkies.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
             }
             case 1 -> {
                 ET.setIcon(ETMoveTwo);
                 moveAnimationSpot = 2;
+                strSoundPath = "Sounds\\ETWalkies2.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
             }
             case 2 ->{
                 ET.setIcon(ETMoveOne);
                 moveAnimationSpot = 1;
+                strSoundPath = "Sounds\\ETWalkies.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
             }
             default -> {
                 ET.setIcon(ETIdle);
                 moveAnimationSpot = 0;
             }
         }
+
         return ET;
     }
     //Plays ETs second animation for when he flys

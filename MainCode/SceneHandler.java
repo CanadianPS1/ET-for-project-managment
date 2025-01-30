@@ -1,5 +1,6 @@
 package MainCode;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 
@@ -199,6 +200,10 @@ setTile(location, ET);
             checkTile(location, ET);
         }
         return location;
+    }
+
+    Clip soundHandler(String strSoundPath, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 
