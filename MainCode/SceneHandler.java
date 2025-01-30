@@ -160,7 +160,7 @@ public class SceneHandler extends Movement {
     public int detectLREdge(JLabel ET, int l){
         location = l;
         // Left edge
-        if (ET.getX() <= 20 ){
+        if (ET.getX() <= 30 ){
             System.out.println("Edge Detected");
             //System.out.println(ET.getX());
             ET.setLocation(270,ET.getY());
@@ -171,7 +171,7 @@ public class SceneHandler extends Movement {
         else if (ET.getX() >= 275){
             System.out.println("Edge Detected");
             //System.out.println(ET.getX());
-            ET.setLocation(22,ET.getY());
+            ET.setLocation(32,ET.getY());
             direction = "R";
             checkTile(location, ET);
         }
