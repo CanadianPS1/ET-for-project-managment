@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,52 +23,67 @@ public class Movement implements KeyListener{
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     protected int energy = 9999;
     private static boolean canMove = true;
-        public Movement(JFrame g){
-            game = g;
-            handler = new SceneHandler(g);
-        }
-        public Movement(){
-        }
-        //Makes ET and starts the detectives movement
-        public void ETMoveFirstRun(){    
-            location = 4;    
-            game.addKeyListener(this);
-            ET = new JLabel(ETIdle);
-            ET.setVisible(true);
-            ET.setSize(16,17);
-            ET.setLocation(100,100);
-            game.add(ET);
-            handler.setTile(location, ET);
-            GreatComputer detective = new GreatComputer(game, handler);
-            Runnable computerMovment = () -> {
-                detective.move(ET, handler);
-            };
-            scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
-            Thread aiMoving = new Thread(computerMovment);
-            aiMoving.start();
-        }
-        //Plays ETs animaton for when hes walking
-        public JLabel ETMoveAnimation(JLabel ET){
-            switch (moveAnimationSpot) {
-                case 0 -> {
-                    ET.setIcon(ETMoveOne);
-                    moveAnimationSpot = 1;
-                }
-                case 1 -> {
-                    ET.setIcon(ETMoveTwo);
-                    moveAnimationSpot = 2;
-                }
-                case 2 ->{
-                    ET.setIcon(ETMoveOne);
-                    moveAnimationSpot = 1;
-                }
-                default -> {
-                    ET.setIcon(ETIdle);
-                    moveAnimationSpot = 0;
-                }
+    public Movement(JFrame g){
+        game = g;
+        handler = new SceneHandler(g);
+    }
+    public Movement(){
+    }
+    //Makes ET and starts the detectives movement
+    public void ETMoveFirstRun(){    
+        location = 4;    
+        game.addKeyListener(this);
+        ET = new JLabel(ETIdle);
+        ET.setVisible(true);
+        ET.setSize(16,17);
+        ET.setLocation(100,100);
+        game.add(ET);
+        handler.setTile(location, ET);
+        GreatComputer detective = new GreatComputer(game, handler);
+        Runnable computerMovment = () -> {
+            detective.move(ET, handler);
+        };
+        scheduler.scheduleAtFixedRate(computerMovment, 5, 500, TimeUnit.MILLISECONDS);
+        Thread aiMoving = new Thread(computerMovment);
+        aiMoving.start();
+    }
+    //Plays ETs animaton for when hes walking
+    public JLabel ETMoveAnimation(JLabel ET){
+
+        Clip clip = null;
+        String strSoundPath;
+        
+        SoundHandler soundHandler = new SoundHandler();
+
+
+        switch (moveAnimationSpot) {
+            case 0 -> {
+                ET.setIcon(ETMoveOne);
+                moveAnimationSpot = 1;
+                strSoundPath = "Sounds\\ETWalkies.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
             }
-            return ET;
+            case 1 -> {
+                ET.setIcon(ETMoveTwo);
+                moveAnimationSpot = 2;
+                strSoundPath = "Sounds\\ETWalkies2.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
+            }
+            case 2 ->{
+                ET.setIcon(ETMoveOne);
+                moveAnimationSpot = 1;
+                strSoundPath = "Sounds\\ETWalkies.wav";
+                clip = soundHandler.soundControl(strSoundPath, true);
+            }
+            default -> {
+                ET.setIcon(ETIdle);
+                moveAnimationSpot = 0;
+            }
         }
+
+        return ET;
+    }
+  
         //Plays ETs second animation for when he flys
         public JLabel ETFlyAnimation(JLabel ET){
             switch (moveAnimationSpot) {

@@ -1,5 +1,6 @@
 package MainCode;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 
