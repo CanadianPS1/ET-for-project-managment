@@ -165,7 +165,7 @@ public class Movement implements KeyListener{
 
         location = handler.detectLREdge(ET, location, energyUI);
         location = handler.detectUDEdge(ET, location, energyUI);
-        handler.detectpit(ET, location, energyUI);
+        handler.detectpit(ET, location);
     }
     @Override
     public void keyReleased(KeyEvent e) {
