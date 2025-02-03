@@ -13,6 +13,7 @@ public class GreatComputer extends SceneHandler{
     private Thread forcingRight;
     private int count = 1;
     private boolean running = true;
+    int energy;
     public GreatComputer(JFrame g, SceneHandler handler, int e) {
         super(g, e);
         detective = new JLabel(detectiveMove1);
@@ -22,9 +23,10 @@ public class GreatComputer extends SceneHandler{
         game.add(detective);
         location = handler.getLocation();
     }
-    //this checks and compares ets location with the detective then moves the detective tword him
-    public void move(JLabel ET, SceneHandler handler){
+    //this checks and compares ets location with the detective then moves the det ective tword him
+    public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
         location = handler.getLocation();
+        energy = e;
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
         }
@@ -38,11 +40,12 @@ public class GreatComputer extends SceneHandler{
             detective.setLocation(detective.getX(), detective.getY() - 2);
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
-            energy = energy - 999;
             
-            detectiveGrab(ET, handler);
+            detectiveGrab(ET, handler, energyUI);
+            energy = energy - 50;
         }
         detectiveMoveAnimation(detective);
+        return energy;
     }
     //sets the animation loop for the detective
     public JLabel detectiveMoveAnimation(JLabel detective){
@@ -81,13 +84,13 @@ public class GreatComputer extends SceneHandler{
         }
         return detective;
     }
-    public void detectiveGrab(JLabel ET, SceneHandler handler){
+    public void detectiveGrab(JLabel ET, SceneHandler handler, JLabel energyUI){
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             running = true;
             switch (location) {
                 case 4 -> {
-                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY(), energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -97,7 +100,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 3 -> {
-                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY(), energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -107,7 +110,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 5 -> {
-                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY());
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY(), energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -122,7 +125,7 @@ public class GreatComputer extends SceneHandler{
                     location = 6;
                 }
                 case 7 -> {
-                    forceRight(ET, handler, 26, ET.getX() - 10, ET.getY());
+                    forceRight(ET, handler, 26, ET.getX() - 10, ET.getY(), energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -132,7 +135,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 1 -> {
-                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5);
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() + 5, energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -142,7 +145,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 2 -> {
-                    forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10);
+                    forceRight(ET, handler, 26, ET.getX(), ET.getY() + 10, energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -152,7 +155,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 8 -> {
-                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5);
+                    forceRight(ET, handler, 26, ET.getX() + 10, ET.getY() - 5, energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -162,7 +165,7 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 case 9 -> {
-                    forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10);
+                    forceRight(ET, handler, 26, ET.getX(), ET.getY() - 10, energyUI);
                     forcingRight.start();
                     if(count == 26){
                         running = false;
@@ -172,23 +175,25 @@ public class GreatComputer extends SceneHandler{
                     }
                 }
                 default -> System.err.println("Error: invalid tile");
+
             }
         }
     }
-    public void forceRight(JLabel ET, SceneHandler handler, int amountMoved, int ETX, int ETY){
+    public void forceRight(JLabel ET, SceneHandler handler, int amountMoved, int ETX, int ETY, JLabel energyUI){
         Runnable forceRight = () -> {
             if(count < amountMoved && running){
                 System.out.println(count);
                 ET.setLocation(ETX, ETY);
                 detective.setLocation(ET.getX() - 10, ET.getY());
                 count += 1;
-                location = handler.detectLREdge(ET, location);
-                location = handler.detectUDEdge(ET, location);
+                location = handler.detectLREdge(ET, location, energyUI);
+                location = handler.detectUDEdge(ET, location, energyUI);
                 System.out.println("location: " + location);
                 if(location == 6){
                     running = false;
                     count = amountMoved;
                     Movement.setCanMove(true);
+                    energy = energy - 900;
                 }
             }
         };
