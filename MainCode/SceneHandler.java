@@ -211,7 +211,7 @@ public class SceneHandler extends Movement {
         return location;
     }
 
-    public void detectpit(JLabel ET, int l){
+    public void detectpit(JLabel ET, int l, JLabel energyUI){
         location = l;
 
         if (location == 3 || location == 7){
