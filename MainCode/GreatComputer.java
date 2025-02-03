@@ -13,7 +13,7 @@ public class GreatComputer extends SceneHandler{
     private Thread forcingRight;
     private int count = 1;
     private boolean running = true;
-    int energy;
+    private int energy;
     public GreatComputer(JFrame g, SceneHandler handler, int e) {
         super(g, e);
         detective = new JLabel(detectiveMove1);
@@ -22,6 +22,10 @@ public class GreatComputer extends SceneHandler{
         detective.setVisible(true);
         game.add(detective);
         location = handler.getLocation();
+    }
+
+    public GreatComputer(JFrame g, int e) {
+        super(g, e);
     }
     //this checks and compares ets location with the detective then moves the det ective tword him
     public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
@@ -199,4 +203,6 @@ public class GreatComputer extends SceneHandler{
         };
         forcingRight = new Thread(forceRight);
     }
+
+    
 }
