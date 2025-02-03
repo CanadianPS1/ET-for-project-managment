@@ -48,9 +48,9 @@ public class Movement implements KeyListener{
         game.add(energyUI);
 
         handler.setTile(location, ET);
-        GreatComputer detective = new GreatComputer(game, handler, energy);
+        //GreatComputer detective = new GreatComputer(game, handler, energy);
         Runnable computerMovment = () -> {
-            detective.move(ET, handler);
+            //detective.move(ET, handler);
         };
         scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
         Thread aiMoving = new Thread(computerMovment);
@@ -122,18 +122,22 @@ public class Movement implements KeyListener{
                 case KeyEvent.VK_W -> {
                     ETMoveAnimation(ET);
                     ET.setLocation(ET.getX(), ET.getY() - 2);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_A -> {
                     ET.setLocation(ET.getX() - 2, ET.getY());
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_S -> {
                     ET.setLocation(ET.getX(), ET.getY() + 2);
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_D -> {
                     ET.setLocation(ET.getX() + 2, ET.getY());
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 //once var is made we need to add && etInHole into the if statment for the space bar
                 case KeyEvent.VK_SPACE -> {
@@ -149,7 +153,8 @@ public class Movement implements KeyListener{
 
         location = handler.detectLREdge(ET, location);
         location = handler.detectUDEdge(ET, location);
-        System.out.println(energy);
+        handler.detectpit(ET, location);
+        //System.out.println(energy);
     }
     @Override
     public void keyReleased(KeyEvent e) {

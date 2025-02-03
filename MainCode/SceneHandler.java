@@ -11,6 +11,8 @@ public class SceneHandler extends Movement {
     ImageIcon pit1 = new ImageIcon("seperated sprites\\Screens\\Pits01.png");
     ImageIcon DC = new ImageIcon("seperated sprites\\Screens\\DC.png");
 
+    ImageIcon insidePit = new ImageIcon("seperated sprites\\Screens\\InsidePit.png");
+
 
 
     private final JLabel background;
@@ -147,6 +149,7 @@ public class SceneHandler extends Movement {
             case 7 -> background.setIcon(pit2);
             case 8 -> background.setIcon(pit1);
             case 9 -> background.setIcon(pit1);
+            case 10 -> background.setIcon(insidePit);
             default -> {
             }
         }
@@ -202,6 +205,20 @@ public class SceneHandler extends Movement {
             checkTile(location, ET);
         }
         return location;
+    }
+
+    public void detectpit(JLabel ET, int l){
+        location = l;
+
+        if (location == 3 || location == 7){
+            if (ET.getX() >= 208 && ET.getX() <= 239 && ET.getY() >= 105 && ET.getY() <= 135){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET);
+            }
+        }
+
     }
 
     public int getLocation(){
