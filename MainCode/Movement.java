@@ -39,6 +39,16 @@ public class Movement implements KeyListener{
         energyUI.setSize(100,30);
         energyUI.setVisible(true);
         //energyUI.setComponentZOrder(energyUI, 2);
+        GreatComputer detective = new GreatComputer(game, handler, energy);
+        Runnable computerMovment = () -> {
+            energy = detective.move(ET, handler, energyUI, energy);
+            if(energy <= 0){
+                ET.setIcon(ETDead);
+            }
+        };
+        scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
+        Thread aiMoving = new Thread(computerMovment);
+        aiMoving.start();
         location = 4;
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
@@ -50,16 +60,7 @@ public class Movement implements KeyListener{
         game.add(ET);
 
         handler.setTile(location, ET, energyUI);
-        GreatComputer detective = new GreatComputer(game, handler, energy);
-        Runnable computerMovment = () -> {
-            energy = detective.move(ET, handler, energyUI, energy);
-            if(energy <= 0){
-                ET.setIcon(ETDead);
-            }
-        };
-        scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
-        Thread aiMoving = new Thread(computerMovment);
-        aiMoving.start();
+        
     }
     //Plays ETs animaton for when hes walking
     public JLabel ETMoveAnimation(JLabel ET){
