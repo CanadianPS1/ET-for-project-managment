@@ -41,7 +41,7 @@ public class Movement implements KeyListener{
         //energyUI.setComponentZOrder(energyUI, 2);
         GreatComputer detective = new GreatComputer(game, handler, energy);
         Runnable computerMovment = () -> {
-            //energy = detective.move(ET, handler, energyUI, energy);
+            energy = detective.move(ET, handler, energyUI, energy);
             if(energy <= 0){
                 ET.setIcon(ETDead);
             }
