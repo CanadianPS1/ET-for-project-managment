@@ -18,6 +18,7 @@ public class Movement implements KeyListener{
     private final ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
     private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
+    private final ImageIcon ETDead = new ImageIcon("seperated sprites\\E.T\\ETDeath06.png");
     protected static JLabel energyUI;
     private SceneHandler handler;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -34,7 +35,7 @@ public class Movement implements KeyListener{
     public void ETMoveFirstRun(int e){
         energy = e;
         energyUI = new JLabel(energy + ""); 
-        energyUI.setLocation(160,200);
+        energyUI.setLocation(140,160);
         energyUI.setSize(100,30);
         energyUI.setVisible(true);
         //energyUI.setComponentZOrder(energyUI, 2);
@@ -44,13 +45,17 @@ public class Movement implements KeyListener{
         ET.setVisible(true);
         ET.setSize(16,17);
         ET.setLocation(100,100);
-        game.add(ET);
         game.add(energyUI);
 
-        handler.setTile(location, ET);
+        game.add(ET);
+
+        handler.setTile(location, ET, energyUI);
         GreatComputer detective = new GreatComputer(game, handler, energy);
         Runnable computerMovment = () -> {
-            detective.move(ET, handler);
+            energy = detective.move(ET, handler, energyUI, energy);
+            if(energy <= 0){
+                ET.setIcon(ETDead);
+            }
         };
         scheduler.scheduleAtFixedRate(computerMovment, 5, 100, TimeUnit.MILLISECONDS);
         Thread aiMoving = new Thread(computerMovment);
@@ -87,6 +92,9 @@ public class Movement implements KeyListener{
                 ET.setIcon(ETIdle);
                 moveAnimationSpot = 0;
             }
+        }
+        if(energy <= 0){
+            ET.setIcon(ETDead);
         }
 
         return ET;
@@ -145,11 +153,14 @@ public class Movement implements KeyListener{
                 }
             }
             energy--;
+            energyUI.setText(energy + "");
+        }else if(energy <= 0){
+            ET.setIcon(ETDead);
+            energyUI.setText("0");
         }
 
-        location = handler.detectLREdge(ET, location);
-        location = handler.detectUDEdge(ET, location);
-        System.out.println(energy);
+        location = handler.detectLREdge(ET, location, energyUI);
+        location = handler.detectUDEdge(ET, location, energyUI);
     }
     @Override
     public void keyReleased(KeyEvent e) {
