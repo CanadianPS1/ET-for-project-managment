@@ -130,18 +130,22 @@ public class Movement implements KeyListener{
                 case KeyEvent.VK_W -> {
                     ETMoveAnimation(ET);
                     ET.setLocation(ET.getX(), ET.getY() - 2);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_A -> {
                     ET.setLocation(ET.getX() - 2, ET.getY());
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_S -> {
                     ET.setLocation(ET.getX(), ET.getY() + 2);
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_D -> {
                     ET.setLocation(ET.getX() + 2, ET.getY());
                     ETMoveAnimation(ET);
+                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 //once var is made we need to add && etInHole into the if statment for the space bar
                 case KeyEvent.VK_SPACE -> {
