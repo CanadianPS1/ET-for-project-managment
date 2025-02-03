@@ -7,7 +7,7 @@ public class GreatComputer extends SceneHandler{
     private final ImageIcon detectiveMove3 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA3.png");
     private final ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
     private int moveAnimationSpot = 0;
-    protected JLabel detective;
+    protected static JLabel detective;
     //private JLabel ET;
     private int location;
     private Thread forcingRight;

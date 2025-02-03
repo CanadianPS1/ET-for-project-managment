@@ -137,7 +137,7 @@ public class SceneHandler extends Movement {
         }
         return location;
     }
-    public void setTile(int l, JLabel ET, JLabel energyUI){
+    public void setTile(int l, JLabel ET, JLabel energyUI1){
         location = l;
         switch (location) {
             case 1 -> background.setIcon(pit3);
@@ -175,6 +175,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(270,ET.getY());
             direction = "L";
             checkTile(location, ET, energyUI);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX() + 230, GreatComputer.detective.getY());
         }
         // Right edge
         else if (ET.getX() >= 275){
@@ -184,6 +185,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(32,ET.getY());
             direction = "R";
             checkTile(location, ET, energyUI);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX() - 230, GreatComputer.detective.getY());
         }
         return location;
     }
@@ -198,6 +200,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(ET.getX(),140);
             direction = "U";
             checkTile(location, ET, energyUI);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() + 150);
         }
         // bottom edge
         else if (ET.getY() >= 150){
@@ -207,11 +210,12 @@ public class SceneHandler extends Movement {
             ET.setLocation(ET.getX(),30);
             direction = "D";
             checkTile(location, ET, energyUI);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() - 150);
         }
         return location;
     }
 
-    public void detectpit(JLabel ET, int l){
+    public void detectpit(JLabel ET, int l, JLabel energyUI){
         location = l;
 
         if (location == 3 || location == 7){
@@ -219,7 +223,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET);
+                setTile(location, ET, energyUI);
             }
         }
 
