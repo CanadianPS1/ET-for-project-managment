@@ -162,7 +162,7 @@ public class SceneHandler extends Movement {
         game.add(energyUI);
         game.add(ET);
         game.add(background);
-        
+        game.update(game.getGraphics());
     }
 
     // detects Left and right edges of the screen
