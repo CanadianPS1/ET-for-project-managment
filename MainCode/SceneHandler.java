@@ -219,7 +219,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET);
+                setTile(location, ET, energyUI);
             }
         }
 
