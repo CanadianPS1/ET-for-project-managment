@@ -200,7 +200,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(ET.getX(),140);
             direction = "U";
             checkTile(location, ET, energyUI);
-            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() + 150);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() + 100);
         }
         // bottom edge
         else if (ET.getY() >= 150){
@@ -210,7 +210,7 @@ public class SceneHandler extends Movement {
             ET.setLocation(ET.getX(),30);
             direction = "D";
             checkTile(location, ET, energyUI);
-            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() - 150);
+            GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() - 100);
         }
         return location;
     }
