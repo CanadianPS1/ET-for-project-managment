@@ -215,8 +215,10 @@ public class SceneHandler extends Movement {
         return location;
     }
 
-    public void detectpit(JLabel ET, int l, JLabel energyUI){
+    public int detectpit(JLabel ET, int l, JLabel energyUI){
         location = l;
+
+        int previousLocation = l;
 
         if (location == 3 || location == 7){
             if (ET.getX() >= 182 && ET.getX() <= 239 && ET.getY() >= 100 && ET.getY() <= 116){
@@ -224,31 +226,79 @@ public class SceneHandler extends Movement {
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                return previousLocation;
             }
             if (ET.getX() >= 64 && ET.getX() <= 110 && ET.getY() >= 100 && ET.getY() <= 116){
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                return previousLocation;
             }
             if (ET.getX() >= 64 && ET.getX() <= 110 && ET.getY() >= 34 && ET.getY() <= 52){
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                return previousLocation;
             }
             if (ET.getX() >= 182 && ET.getX() <= 239 && ET.getY() >= 34 && ET.getY() <= 52){
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                return previousLocation;
             }
-        }
 
+            return previousLocation;
+        }
+        else if (location == 1 || location == 2){
+            if (ET.getX() >= 71 && ET.getX() <= 84 && ET.getY() >= 62 && ET.getY() <= 102){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 148 && ET.getX() <= 160 && ET.getY() >= 96 && ET.getY() <= 104){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 148 && ET.getX() <= 160 && ET.getY() >= 48 && ET.getY() <= 56){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 224 && ET.getX() <= 238 && ET.getY() >= 56 && ET.getY() <= 104){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+
+            return previousLocation;
+        }
+        return previousLocation;
     }
 
     public int getLocation(){
         return location;
+    }
+    
+    public void checkPitLeave(JLabel ET, int l, JLabel energyUI, int prevLocal){
+        location = l;
+
+        if (location == 10 && ET.getX() >= 173){
+                setTile(prevLocal, ET, energyUI);
+                ET.setLocation(ET.getX(),140);
+            }
+        
     }
 
 

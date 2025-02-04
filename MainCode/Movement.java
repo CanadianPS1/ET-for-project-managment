@@ -23,6 +23,7 @@ public class Movement implements KeyListener{
     private SceneHandler handler;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     protected int energy;
+    protected int intPrevLocal;
     private static boolean canMove = true;
     public Movement(JFrame g, int e){
         game = g;
@@ -163,10 +164,16 @@ public class Movement implements KeyListener{
             ET.setIcon(ETDead);
             energyUI.setText("0");
         }
-
+        
+        if(handler.getLocation() != 10){
         location = handler.detectLREdge(ET, location, energyUI);
         location = handler.detectUDEdge(ET, location, energyUI);
-        handler.detectpit(ET, location, energyUI);
+    
+        int intPrevLocal = handler.detectpit(ET, location, energyUI);
+
+        }
+
+        handler.checkPitLeave(ET, key, energyUI, intPrevLocal);
     }
     @Override
     public void keyReleased(KeyEvent e) {
