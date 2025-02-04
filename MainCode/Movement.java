@@ -19,6 +19,10 @@ public class Movement implements KeyListener{
     private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
     private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
     private final ImageIcon ETDead = new ImageIcon("seperated sprites\\E.T\\ETDeath06.png");
+    private final ImageIcon shipIco = new ImageIcon("seperated sprites\\E.T\\Ship\\ETShip01.png");
+    private final JLabel ship = new JLabel(shipIco);
+    private Thread shipAnimationThread;
+    private boolean inAnimation;
     protected static JLabel energyUI;
     private SceneHandler handler;
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -34,12 +38,13 @@ public class Movement implements KeyListener{
     }
     //Makes ET and starts the detectives movement
     public void ETMoveFirstRun(int e){
+        inAnimation = true;
+        canMove = false;
         energy = e;
         energyUI = new JLabel(energy + ""); 
         energyUI.setLocation(140,160);
         energyUI.setSize(100,30);
         energyUI.setVisible(true);
-        //energyUI.setComponentZOrder(energyUI, 2);
         GreatComputer detective = new GreatComputer(game, handler, energy);
         Runnable computerMovment = () -> {
             energy = detective.move(ET, handler, energyUI, energy);
@@ -51,17 +56,23 @@ public class Movement implements KeyListener{
         Thread aiMoving = new Thread(computerMovment);
         aiMoving.start();
         location = 4;
+        ship.setSize(32,32);
+        ship.setLocation(148,28);
+        ship.setVisible(true);
+        game.add(ship);
         game.addKeyListener(this);
         ET = new JLabel(ETIdle);
         ET.setVisible(true);
         ET.setSize(16,17);
-        ET.setLocation(100,100);
+        ET.setLocation(156,36);
         game.add(energyUI);
 
         game.add(ET);
 
         handler.setTile(location, ET, energyUI);
-        
+        Runnable shipAnimationRunnable = shipAnimetion();
+        scheduler.scheduleAtFixedRate(shipAnimationRunnable, 5, 200, TimeUnit.MILLISECONDS);
+        shipAnimationThread.start();
     }
     //Plays ETs animaton for when hes walking
     public JLabel ETMoveAnimation(JLabel ET){
@@ -122,6 +133,25 @@ public class Movement implements KeyListener{
             }
         }
         return ET;
+    }
+    public Runnable shipAnimetion(){
+
+        Runnable shipAnimationRunnable = () -> {
+            if(inAnimation){
+                if(ET.getY() <= 100){
+                    ET.setLocation(ET.getX(), ET.getY() + 5);
+                    ship.setLocation(ship.getX(), ship.getY() + 5);
+
+                }else{
+                    inAnimation = false;
+                    ship.setVisible(false);
+                    ship.setLocation(148,28);
+                    canMove = true;
+                }
+            }
+        };
+        shipAnimationThread = new Thread(shipAnimationRunnable);
+        return shipAnimationRunnable;
     }
     //these methods are for detecting keypresses then moving ET to those spots
     @Override
