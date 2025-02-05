@@ -284,6 +284,72 @@ public class SceneHandler extends Movement {
 
             return previousLocation;
         }
+        else if(location == 5){
+            // middle left pit
+            if(ET.getX() >= 82 && ET.getX() <= 100 && ET.getY() >= 71 && ET.getY() <= 83){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // middle right pit
+            else if(ET.getX() >=214 && ET.getX() <= 228 && ET.getY() >= 71 && ET.getY() <=83){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // top center pit
+            else if(ET.getX() >= 134 && ET.getX() <= 174 && ET.getY() >= 33 && ET.getY() <=39){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // bottom middle pit
+            else if(ET.getX() >= 134 && ET.getX() <= 174 && ET.getY() >= 115 && ET.getY() <= 121){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // bottom right pit
+            else if(ET.getX() >= 32 && ET.getX() <= 54 && ET.getY() >= 113 && ET.getY() <= 123){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // top right pit
+            else if(ET.getX() >= 32 && ET.getX() <= 54 && ET.getY() >= 29 && ET.getY() <= 41){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // top left pit
+            else if(ET.getX() >= 264 && ET.getX() <= 274 && ET.getY() >= 29 && ET.getY() <= 41){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+            // bottom left pit
+            else if(ET.getX() >= 266 && ET.getX() <= 274 && ET.getY() >= 113 && ET.getY() <= 123){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(10, ET, energyUI);
+                return previousLocation;
+            }
+        }
         return previousLocation;
     }
 
