@@ -712,6 +712,57 @@ public class SceneHandler extends Movement {
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
+                    if(PhonePieceSpawns.phonePiece1Hole == 1){
+                        phonePiece = new JLabel(phonePiece1);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece2Hole == 1){
+                        phonePiece = new JLabel(phonePiece2);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece3Hole == 1){
+                        phonePiece = new JLabel(phonePiece3);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else{
+                    System.err.println("ERROR: piece thought it was in the wrong spot");
+                }
                 return previousLocation;
             }
             //top right
@@ -720,6 +771,57 @@ public class SceneHandler extends Movement {
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
+                    if(PhonePieceSpawns.phonePiece1Hole == 2){
+                        phonePiece = new JLabel(phonePiece1);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece2Hole == 2){
+                        phonePiece = new JLabel(phonePiece2);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece3Hole == 2){
+                        phonePiece = new JLabel(phonePiece3);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else{
+                    System.err.println("ERROR: piece thought it was in the wrong spot");
+                }
                 return previousLocation;
             }
             //bottom left
@@ -728,6 +830,57 @@ public class SceneHandler extends Movement {
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
+                    if(PhonePieceSpawns.phonePiece1Hole == 3){
+                        phonePiece = new JLabel(phonePiece1);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece2Hole == 3){
+                        phonePiece = new JLabel(phonePiece2);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece3Hole == 3){
+                        phonePiece = new JLabel(phonePiece3);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else{
+                    System.err.println("ERROR: piece thought it was in the wrong spot");
+                }
                 return previousLocation;
             }
             //bottom right
@@ -736,6 +889,57 @@ public class SceneHandler extends Movement {
                 ET.setLocation(150, 128);
                 location = 10;
                 setTile(location, ET, energyUI);
+                if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
+                    if(PhonePieceSpawns.phonePiece1Hole == 4){
+                        phonePiece = new JLabel(phonePiece1);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece2Hole == 4){
+                        phonePiece = new JLabel(phonePiece2);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
+                    if(PhonePieceSpawns.phonePiece3Hole == 4){
+                        phonePiece = new JLabel(phonePiece3);
+                        phonePiece.setSize(16,10);
+                        phonePiece.setLocation(140,128);
+                        phonePiece.setVisible(true);
+                        game.remove(background);
+                        game.remove(ET);
+                        game.remove(energyUI);
+
+                        game.add(phonePiece);
+                        game.add(energyUI);
+                        game.add(ET);
+                        game.add(background);
+                        game.update(game.getGraphics());
+                    }
+                }else{
+                    System.err.println("ERROR: piece thought it was in the wrong spot");
+                }
                 return previousLocation;
             }
 
