@@ -28,7 +28,6 @@ public class GreatComputer extends SceneHandler{
     //this checks and compares ets location with the detective then moves the det ective tword him
     public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
         energy = e;
-        System.out.println("checked for grab");
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
         }
@@ -42,7 +41,6 @@ public class GreatComputer extends SceneHandler{
             detective.setLocation(detective.getX(), detective.getY() - 2);
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
-            System.out.println("grabbed");
             detectiveGrab(ET, handler, energyUI);
             energy = energy - 50;
         }
