@@ -283,6 +283,37 @@ public class SceneHandler extends Movement {
             }
 
             return previousLocation;
+        }else if (location == 8 || location == 9){
+            if (ET.getX() >= 74 && ET.getX() <= 114 && ET.getY() >= 44 && ET.getY() <= 64){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 188 && ET.getX() <= 232 && ET.getY() >= 44 && ET.getY() <= 64){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 74 && ET.getX() <= 114 && ET.getY() >= 100 && ET.getY() <= 108){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+            if (ET.getX() >= 188 && ET.getX() <= 232 && ET.getY() >= 100 && ET.getY() <= 108){
+                System.out.println("Pit Detected");
+                ET.setLocation(150, 128);
+                location = 10;
+                setTile(location, ET, energyUI);
+                return previousLocation;
+            }
+
+            return previousLocation;
         }
         return previousLocation;
     }
