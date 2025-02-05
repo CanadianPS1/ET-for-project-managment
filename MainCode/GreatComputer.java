@@ -188,7 +188,6 @@ public class GreatComputer extends SceneHandler{
                 count += 1;
                 handler.detectLREdge(ET, energyUI, arrows);
                 handler.detectUDEdge(ET, energyUI, arrows);
-                System.out.println("location: " + Movement.location);
                 if(Movement.location == 6){
                     running = false;
                     count = amountMoved;

@@ -484,7 +484,6 @@ public class SceneHandler extends Movement {
                 }
                 //top left
                 if (ET.getX() >= 64 && ET.getX() <= 110 && ET.getY() >= 34 && ET.getY() <= 52){
-                    System.out.println("Pit Detected");
                     Movement.isInPit = true;
                     ET.setLocation(150, 128);
                     game.remove(GreatComputer.detective);
