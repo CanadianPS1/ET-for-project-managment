@@ -34,7 +34,7 @@ public class SceneHandler extends Movement {
 
         game.add(background);           
     }
-    public int checkTile(int l, JLabel et, JLabel energyUI){
+    public int checkTile(int l, JLabel et, JLabel energyUI, JLabel arrows){
         ET = et;
         location = l;
         switch (location) {
@@ -47,7 +47,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 2 -> {
             switch (direction) {
@@ -58,7 +58,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 3 -> {
             switch (direction) {
@@ -69,7 +69,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 4 -> {
             switch (direction) {
@@ -80,7 +80,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 5 -> {
             switch (direction) {
@@ -91,7 +91,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 6 -> {
             switch (direction) {
@@ -102,7 +102,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 7 -> {
             switch (direction) {
@@ -113,7 +113,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 8 -> {
             switch (direction) {
@@ -124,7 +124,7 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             case 9 -> {
             switch (direction) {
@@ -135,14 +135,14 @@ public class SceneHandler extends Movement {
                 default -> {
                 }
             }
-        setTile(location, ET, energyUI);
+        setTile(location, ET, energyUI, arrows);
             }
             default -> {
             }
         }
         return location;
     }
-    public void setTile(int l, JLabel ET, JLabel energyUI1){
+    public void setTile(int l, JLabel ET, JLabel energyUI1, JLabel arrows){
         location = l;
         switch (location) {
             case 1 -> background.setIcon(pit3);
@@ -167,11 +167,57 @@ public class SceneHandler extends Movement {
         game.add(energyUI);
         game.add(ET);
         game.add(background);
+        game.add(arrows);
         game.update(game.getGraphics());
     }
 
+    public void arrowHandler(JLabel arrows, ImageIcon arrowLeft, ImageIcon arrowRight, ImageIcon arrowUp, ImageIcon arrowDown, int location){
+        if(location == 3 || location == 4 || location == 5 || location == 6 || location == 7){
+            if(PhonePieceSpawns.phonePiece1Map != 8 && PhonePieceSpawns.phonePiece1Map != 9 && PhonePieceSpawns.phonePiece1Map != 1 && PhonePieceSpawns.phonePiece1Map != 2 && PhonePieceSpawns.phonePiece1Map > location){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowRight);
+                System.out.println("Right Arrow");
+            }
+            else if(PhonePieceSpawns.phonePiece1Map < location){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowLeft);
+                System.out.println("Left Arrow");
+            }
+            else if(PhonePieceSpawns.phonePiece1Map == location){
+                arrows.setVisible(false);
+            }
+        }
+        if(location == 4 || location == 8){
+            if(PhonePieceSpawns.phonePiece1Map == 1){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowUp);
+                System.out.println("Up Arrow");
+            }
+            else if(PhonePieceSpawns.phonePiece1Map == 8 && location == 4){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowDown);
+                System.out.println("Down Arrow");
+            }
+        }
+        else if(location == 6 || location == 9){
+            if(PhonePieceSpawns.phonePiece1Map == 2){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowUp);
+                System.out.println("Up Arrow");
+            }
+            else if (PhonePieceSpawns.phonePiece1Map == 9 && location == 6){
+                arrows.setVisible(true);
+                arrows.setIcon(arrowDown);
+                System.out.println("Down Arrow");
+            }
+        }
+        else{
+            arrows.setVisible(false);
+        }
+    }
+
     // detects Left and right edges of the screen
-    public int detectLREdge(JLabel ET, int l, JLabel energyUI){
+    public int detectLREdge(JLabel ET, int l, JLabel energyUI, JLabel arrows){
         location = l;
         // Left edge
         if (ET.getX() <= 30 ){
@@ -179,7 +225,7 @@ public class SceneHandler extends Movement {
             //System.out.println(ET.getX());
             ET.setLocation(270,ET.getY());
             direction = "L";
-            checkTile(location, ET, energyUI);
+            checkTile(location, ET, energyUI, arrows);
             GreatComputer.detective.setLocation(GreatComputer.detective.getX() + 230, GreatComputer.detective.getY());
         }
         // Right edge
@@ -189,13 +235,13 @@ public class SceneHandler extends Movement {
             ET.setLocation(36,ET.getY());
             ET.setLocation(32,ET.getY());
             direction = "R";
-            checkTile(location, ET, energyUI);
+            checkTile(location, ET, energyUI, arrows);
             GreatComputer.detective.setLocation(GreatComputer.detective.getX() - 230, GreatComputer.detective.getY());
         }
         return location;
     }
 
-    public int detectUDEdge(JLabel ET, int l, JLabel energyUI){
+    public int detectUDEdge(JLabel ET, int l, JLabel energyUI, JLabel arrows){
         location = l;
         // Top edge
         if (ET.getY() <= 20){
@@ -204,7 +250,7 @@ public class SceneHandler extends Movement {
             // screenChange(intScreenNum + 1);
             ET.setLocation(ET.getX(),140);
             direction = "U";
-            checkTile(location, ET, energyUI);
+            checkTile(location, ET, energyUI, arrows);
             GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() + 100);
         }
         // bottom edge
@@ -214,7 +260,7 @@ public class SceneHandler extends Movement {
             System.out.println(ET.getY());
             ET.setLocation(ET.getX(),30);
             direction = "D";
-            checkTile(location, ET, energyUI);
+            checkTile(location, ET, energyUI, arrows);
             GreatComputer.detective.setLocation(GreatComputer.detective.getX(), GreatComputer.detective.getY() - 100);
         }
         return location;
@@ -231,7 +277,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 3 || PhonePieceSpawns.phonePiece1Map == 7){
                     if(PhonePieceSpawns.phonePiece1Hole == 3){
                         phonePiece = new JLabel(phonePiece1);
@@ -290,7 +336,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 3 || PhonePieceSpawns.phonePiece1Map == 7){
                     if(PhonePieceSpawns.phonePiece1Hole == 4){
                         phonePiece = new JLabel(phonePiece1);
@@ -350,7 +396,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 3 || PhonePieceSpawns.phonePiece1Map == 7){
                     if(PhonePieceSpawns.phonePiece1Hole == 1){
                         phonePiece = new JLabel(phonePiece1);
@@ -409,7 +455,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 3 || PhonePieceSpawns.phonePiece1Map == 7){
                     if(PhonePieceSpawns.phonePiece1Hole == 2){
                         phonePiece = new JLabel(phonePiece1);
@@ -472,7 +518,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 1 || PhonePieceSpawns.phonePiece1Map == 2){
                     if(PhonePieceSpawns.phonePiece1Hole == 3){
                         phonePiece = new JLabel(phonePiece1);
@@ -531,7 +577,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 1 || PhonePieceSpawns.phonePiece1Map == 2){
                     if(PhonePieceSpawns.phonePiece1Hole == 4){
                         phonePiece = new JLabel(phonePiece1);
@@ -590,7 +636,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 1 || PhonePieceSpawns.phonePiece1Map == 2){
                     if(PhonePieceSpawns.phonePiece1Hole == 1){
                         phonePiece = new JLabel(phonePiece1);
@@ -649,7 +695,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 1 || PhonePieceSpawns.phonePiece1Map == 2){
                     if(PhonePieceSpawns.phonePiece1Hole == 2){
                         phonePiece = new JLabel(phonePiece1);
@@ -711,7 +757,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
                     if(PhonePieceSpawns.phonePiece1Hole == 1){
                         phonePiece = new JLabel(phonePiece1);
@@ -770,7 +816,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
                     if(PhonePieceSpawns.phonePiece1Hole == 2){
                         phonePiece = new JLabel(phonePiece1);
@@ -829,7 +875,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
                     if(PhonePieceSpawns.phonePiece1Hole == 3){
                         phonePiece = new JLabel(phonePiece1);
@@ -888,7 +934,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(location, ET, energyUI);
+                setTile(location, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 8 || PhonePieceSpawns.phonePiece1Map == 9){
                     if(PhonePieceSpawns.phonePiece1Hole == 4){
                         phonePiece = new JLabel(phonePiece1);
@@ -951,7 +997,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 4){
                         phonePiece = new JLabel(phonePiece1);
@@ -1010,7 +1056,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 5){
                         phonePiece = new JLabel(phonePiece1);
@@ -1069,7 +1115,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 2){
                         phonePiece = new JLabel(phonePiece1);
@@ -1128,7 +1174,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 7){
                         phonePiece = new JLabel(phonePiece1);
@@ -1187,7 +1233,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 8){
                         phonePiece = new JLabel(phonePiece1);
@@ -1246,7 +1292,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 3){
                         phonePiece = new JLabel(phonePiece1);
@@ -1305,7 +1351,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 1){
                         phonePiece = new JLabel(phonePiece1);
@@ -1364,7 +1410,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(10, ET, energyUI, arrows);
                 if(PhonePieceSpawns.phonePiece1Map == 5){
                     if(PhonePieceSpawns.phonePiece1Hole == 6){
                         phonePiece = new JLabel(phonePiece1);
@@ -1430,7 +1476,7 @@ public class SceneHandler extends Movement {
         location = l;
 
         if (location == 10 && ET.getX() >= 173){
-                setTile(prevLocal, ET, energyUI);
+                setTile(prevLocal, ET, energyUI, arrows);
                 ET.setLocation(ET.getX(),140);
             }
         

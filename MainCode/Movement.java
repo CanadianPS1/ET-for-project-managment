@@ -20,7 +20,12 @@ public class Movement implements KeyListener{
     private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
     private final ImageIcon ETDead = new ImageIcon("seperated sprites\\E.T\\ETDeath06.png");
     private final ImageIcon shipIco = new ImageIcon("seperated sprites\\E.T\\Ship\\ETShip01.png");
+    private final ImageIcon arrowUp = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowUp.png");
+    private final ImageIcon arrowDown = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowDown.png");
+    private final ImageIcon arrowLeft = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowLeft.png");
+    private final ImageIcon arrowRight = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowRight.png");
     private final JLabel ship = new JLabel(shipIco);
+    protected final JLabel arrows = new JLabel();
     private Thread shipAnimationThread;
     private boolean inAnimation;
     protected static JLabel energyUI;
@@ -45,6 +50,10 @@ public class Movement implements KeyListener{
         energyUI.setLocation(140,160);
         energyUI.setSize(100,30);
         energyUI.setVisible(true);
+        arrows.setLocation(14,158);
+        arrows.setSize(16,16);
+        arrows.setVisible(true);
+        game.add(arrows);
         GreatComputer detective = new GreatComputer(game, handler, energy);
         Runnable computerMovment = () -> {
             energy = detective.move(ET, handler, energyUI, energy);
@@ -69,7 +78,7 @@ public class Movement implements KeyListener{
 
         game.add(ET);
 
-        handler.setTile(location, ET, energyUI);
+        handler.setTile(location, ET, energyUI, arrows);
         Runnable shipAnimationRunnable = shipAnimetion();
         scheduler.scheduleAtFixedRate(shipAnimationRunnable, 5, 200, TimeUnit.MILLISECONDS);
         shipAnimationThread.start();
@@ -195,17 +204,21 @@ public class Movement implements KeyListener{
             ET.setIcon(ETDead);
             energyUI.setText("0");
         }
-        
+
+
         if(handler.getLocation() != 10){
-        location = handler.detectLREdge(ET, location, energyUI);
-        location = handler.detectUDEdge(ET, location, energyUI);
+        location = handler.detectLREdge(ET, location, energyUI, arrows);
+        location = handler.detectUDEdge(ET, location, energyUI, arrows);
     
         intPrevLocal = handler.detectpit(ET, location, energyUI);
 
-        }
+        handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, handler.getLocation());
+
 
         handler.checkPitLeave(ET, key, energyUI, intPrevLocal);
+        }
     }
+
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
