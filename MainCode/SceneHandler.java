@@ -1463,7 +1463,7 @@ public class SceneHandler extends Movement {
 
     
     public void checkPitLeave(JLabel ET, JLabel energyUI){
-    
+
 
         if (Movement.location == 10 && ET.getX() >= 173){
                 setTile(ET, energyUI, arrows);

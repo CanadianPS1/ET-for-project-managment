@@ -207,8 +207,7 @@ public class Movement implements KeyListener{
     
         SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
 
-        handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, handler.getLocation());
-
+        handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
 
         handler.checkPitLeave(ET, energyUI);
         }
