@@ -267,6 +267,8 @@ public class SceneHandler extends Movement {
             //bottem right
             if (ET.getX() >= 182 && ET.getX() <= 239 && ET.getY() >= 100 && ET.getY() <= 116){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -277,6 +279,7 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -293,6 +296,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -309,6 +314,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -327,6 +334,8 @@ public class SceneHandler extends Movement {
             //bottom left
             if (ET.getX() >= 64 && ET.getX() <= 110 && ET.getY() >= 100 && ET.getY() <= 116){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -337,6 +346,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -353,6 +364,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -369,6 +382,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -388,6 +403,8 @@ public class SceneHandler extends Movement {
             //top left
             if (ET.getX() >= 64 && ET.getX() <= 110 && ET.getY() >= 34 && ET.getY() <= 52){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -398,6 +415,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -414,6 +433,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -430,6 +451,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -448,6 +471,8 @@ public class SceneHandler extends Movement {
             //top right
             if (ET.getX() >= 182 && ET.getX() <= 239 && ET.getY() >= 34 && ET.getY() <= 52){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 Movement.location = 10;
                 game.remove(GreatComputer.detective);
@@ -458,6 +483,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -474,6 +501,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -490,6 +519,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -512,6 +543,8 @@ public class SceneHandler extends Movement {
             //bottom left
             if (ET.getX() >= 71 && ET.getX() <= 84 && ET.getY() >= 62 && ET.getY() <= 102){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -522,6 +555,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -538,6 +573,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -554,6 +591,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -572,6 +611,8 @@ public class SceneHandler extends Movement {
             //bottom right
             if (ET.getX() >= 148 && ET.getX() <= 160 && ET.getY() >= 96 && ET.getY() <= 104){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -582,6 +623,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -598,6 +641,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -614,6 +659,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -632,6 +679,8 @@ public class SceneHandler extends Movement {
             //top left
             if (ET.getX() >= 148 && ET.getX() <= 160 && ET.getY() >= 48 && ET.getY() <= 56){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -642,6 +691,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -658,6 +709,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -674,6 +727,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -692,6 +747,8 @@ public class SceneHandler extends Movement {
             //top right
             if (ET.getX() >= 224 && ET.getX() <= 238 && ET.getY() >= 56 && ET.getY() <= 104){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -702,6 +759,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -718,6 +777,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -734,6 +795,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -755,6 +818,8 @@ public class SceneHandler extends Movement {
             //top left
             if (ET.getX() >= 74 && ET.getX() <= 114 && ET.getY() >= 44 && ET.getY() <= 64){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -765,6 +830,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -781,6 +848,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -797,6 +866,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -815,6 +886,8 @@ public class SceneHandler extends Movement {
             //top right
             if (ET.getX() >= 188 && ET.getX() <= 232 && ET.getY() >= 44 && ET.getY() <= 64){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -825,6 +898,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -841,6 +916,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -857,6 +934,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -875,6 +954,8 @@ public class SceneHandler extends Movement {
             //bottom left
             if (ET.getX() >= 74 && ET.getX() <= 114 && ET.getY() >= 100 && ET.getY() <= 108){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -885,6 +966,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -901,6 +984,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -917,6 +1002,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -935,6 +1022,8 @@ public class SceneHandler extends Movement {
             //bottom right
             if (ET.getX() >= 188 && ET.getX() <= 232 && ET.getY() >= 100 && ET.getY() <= 108){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -945,6 +1034,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -961,6 +1052,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -977,6 +1070,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -999,6 +1094,8 @@ public class SceneHandler extends Movement {
             // middle left pit
             if(ET.getX() >= 82 && ET.getX() <= 100 && ET.getY() >= 71 && ET.getY() <= 83){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -1009,6 +1106,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1025,6 +1124,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1041,6 +1142,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1059,6 +1162,8 @@ public class SceneHandler extends Movement {
             // middle right pit
             else if(ET.getX() >=214 && ET.getX() <= 228 && ET.getY() >= 71 && ET.getY() <=83){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 Movement.location = 10;
                 setTile(ET, energyUI, arrows);
@@ -1068,6 +1173,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1084,6 +1191,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1100,6 +1209,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1118,6 +1229,8 @@ public class SceneHandler extends Movement {
             // top center pit
             else if(ET.getX() >= 134 && ET.getX() <= 174 && ET.getY() >= 33 && ET.getY() <=39){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 Movement.location = 10;
                 setTile( ET, energyUI, arrows);
@@ -1127,6 +1240,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1143,6 +1258,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1159,6 +1276,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1177,6 +1296,8 @@ public class SceneHandler extends Movement {
             // bottom middle pit
             else if(ET.getX() >= 134 && ET.getX() <= 174 && ET.getY() >= 115 && ET.getY() <= 121){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -1187,6 +1308,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1203,6 +1326,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1219,6 +1344,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1237,6 +1364,8 @@ public class SceneHandler extends Movement {
             // bottom right pit
             else if(ET.getX() >= 32 && ET.getX() <= 54 && ET.getY() >= 113 && ET.getY() <= 123){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 Movement.location = 10;
                 setTile(ET, energyUI, arrows);
@@ -1246,6 +1375,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1262,6 +1393,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1278,6 +1411,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1296,6 +1431,8 @@ public class SceneHandler extends Movement {
             // top right pit
             else if(ET.getX() >= 32 && ET.getX() <= 54 && ET.getY() >= 29 && ET.getY() <= 41){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 Movement.location = 10;
                 setTile(ET, energyUI, arrows);
@@ -1305,6 +1442,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1321,6 +1460,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1337,6 +1478,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1355,6 +1498,8 @@ public class SceneHandler extends Movement {
             // top left pit
             else if(ET.getX() >= 264 && ET.getX() <= 274 && ET.getY() >= 29 && ET.getY() <= 41){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -1365,6 +1510,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1381,6 +1528,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1397,6 +1546,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1415,6 +1566,8 @@ public class SceneHandler extends Movement {
             // bottom left pit
             else if(ET.getX() >= 266 && ET.getX() <= 274 && ET.getY() >= 113 && ET.getY() <= 123){
                 System.out.println("Pit Detected");
+                Movement.isInPit = true;
+
                 ET.setLocation(150, 128);
                 game.remove(GreatComputer.detective);
                 Movement.location = 10;
@@ -1425,6 +1578,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1441,6 +1596,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1457,6 +1614,8 @@ public class SceneHandler extends Movement {
                         phonePiece.setSize(16,10);
                         phonePiece.setLocation(140,128);
                         phonePiece.setVisible(true);
+                        Movement.isInPit = true;
+
                         game.remove(background);
                         game.remove(ET);
                         game.remove(energyUI);
@@ -1483,6 +1642,8 @@ public class SceneHandler extends Movement {
 
         if (Movement.location == 10 && ET.getX() >= 173){
                 setTile(ET, energyUI, arrows);
+                Movement.isInPit = false;
+
                 ET.setLocation(ET.getX(),140);
         }
         
