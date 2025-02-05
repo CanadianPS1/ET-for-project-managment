@@ -73,6 +73,7 @@ public class Movement implements KeyListener{
         Runnable shipAnimationRunnable = shipAnimetion();
         scheduler.scheduleAtFixedRate(shipAnimationRunnable, 5, 200, TimeUnit.MILLISECONDS);
         shipAnimationThread.start();
+        new PhonePieceSpawns(game, energy);
     }
     //Plays ETs animaton for when hes walking
     public JLabel ETMoveAnimation(JLabel ET){

@@ -1,12 +1,15 @@
 package MainCode;
 import java.util.Random;
-public class PhonePieceSpawns extends Movement{
-    private Random rand = new Random();
-    private static int phonePiece1Map, phonePiece1Hole;
-    private static int phonePiece2Map, phonePiece2Hole;
-    private static int phonePiece3Map, phonePiece3Hole;
 
-    public PhonePieceSpawns(){
+import javax.swing.JFrame;
+public class PhonePieceSpawns extends SceneHandler{
+    private Random rand = new Random();
+    protected static int phonePiece1Map, phonePiece1Hole;
+    protected static int phonePiece2Map, phonePiece2Hole;
+    protected static int phonePiece3Map, phonePiece3Hole;
+
+    public PhonePieceSpawns(JFrame g, int e){
+        super(g,e);
         phonePiece1Map = rand.nextInt(1,5);
         phonePiece2Map = rand.nextInt(1,5);
         phonePiece3Map = rand.nextInt(1,5);
