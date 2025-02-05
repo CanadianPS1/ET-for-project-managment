@@ -202,12 +202,14 @@ public class Movement implements KeyListener{
         }
         
         if(location != 10){
-        handler.detectLREdge(ET, energyUI, arrows);
-        handler.detectUDEdge(ET, energyUI, arrows);
-    
-        SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
+            handler.detectLREdge(ET, energyUI, arrows);
+            handler.detectUDEdge(ET, energyUI, arrows);
+        
+            SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
 
-        handler.checkPitLeave(ET, energyUI);
+        }
+        if(location == 10){
+            handler.checkPitLeave(ET, energyUI);
         }
     }
     @Override
