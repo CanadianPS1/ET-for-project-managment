@@ -9,7 +9,6 @@ public class GreatComputer extends SceneHandler{
     private int moveAnimationSpot = 0;
     protected static JLabel detective;
     //private JLabel ET;
-    private int location;
     private Thread forcingRight;
     private int count = 1;
     private boolean running = true;
@@ -90,7 +89,7 @@ public class GreatComputer extends SceneHandler{
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             running = true;
-            switch (location) {
+            switch (Movement.location) {
                 case 4 -> {
                     forceRight(ET, handler, 26, ET.getX() + 10, ET.getY(), energyUI);
                     forcingRight.start();
@@ -124,7 +123,7 @@ public class GreatComputer extends SceneHandler{
                 case 6 -> {
                     Movement.setCanMove(true);
                     running = false;
-                    location = 6;
+                    Movement.location = 6;
                 }
                 case 7 -> {
                     forceRight(ET, handler, 26, ET.getX() - 10, ET.getY(), energyUI);
@@ -190,8 +189,8 @@ public class GreatComputer extends SceneHandler{
                 count += 1;
                 handler.detectLREdge(ET, energyUI);
                 handler.detectUDEdge(ET, energyUI);
-                System.out.println("location: " + location);
-                if(location == 6){
+                System.out.println("location: " + Movement.location);
+                if(Movement.location == 6){
                     running = false;
                     count = amountMoved;
                     Movement.setCanMove(true);
