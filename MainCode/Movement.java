@@ -189,10 +189,10 @@ public class Movement implements KeyListener{
                     energy = energy - 18;
                 }else{
                     ETFlyAnimation(ET, 0);
-                }
-                else{
+
                     handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
                 }
+
             }
             energy--;
             energyUI.setText(energy + "");
