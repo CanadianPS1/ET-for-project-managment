@@ -1433,10 +1433,12 @@ public class SceneHandler extends Movement {
         return previousLocation;
     }
     public void checkPitLeave(JLabel ET, JLabel energyUI){
-        if (Movement.location == 10 && ET.getX() >= 173){
+        if (Movement.location == 10 && ET.getY() <= 20){
+            System.out.println("left pit");
+            ET.setLocation(ET.getX(),140);
+            Movement.location = previousLocation;
             setTile(ET, energyUI, arrows);
             Movement.isInPit = false;
-            ET.setLocation(ET.getX(),140);
         }
     }
 

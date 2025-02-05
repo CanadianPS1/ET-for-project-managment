@@ -175,7 +175,7 @@ public class Movement implements KeyListener{
             }else if(key == KeyEvent.VK_A){
                 ET.setLocation(ET.getX() - 2, ET.getY());
                 ETMoveAnimation(ET);
-            }else if(key == KeyEvent.VK_S){
+            }else if(key == KeyEvent.VK_S && !isInPit){
                 ET.setLocation(ET.getX(), ET.getY() + 2);
                 ETMoveAnimation(ET);
             }else if(key == KeyEvent.VK_D){
@@ -206,7 +206,9 @@ public class Movement implements KeyListener{
 
         handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
 
-        handler.checkPitLeave(ET, energyUI);
+        }
+        if(location == 10){
+            handler.checkPitLeave(ET, energyUI);
         }
     }
     @Override
