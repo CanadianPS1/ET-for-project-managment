@@ -321,7 +321,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // middle right pit
@@ -337,7 +337,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // bottom middle pit
@@ -345,7 +345,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // bottom right pit
@@ -353,7 +353,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // top right pit
@@ -361,7 +361,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // top left pit
@@ -369,7 +369,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
             // bottom left pit
@@ -377,7 +377,7 @@ public class SceneHandler extends Movement {
                 System.out.println("Pit Detected");
                 ET.setLocation(150, 128);
                 location = 10;
-                setTile(10, ET, energyUI);
+                setTile(location, ET, energyUI);
                 return previousLocation;
             }
         }

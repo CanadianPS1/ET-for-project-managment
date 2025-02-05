@@ -20,7 +20,7 @@ public class GreatComputer extends SceneHandler{
         detective.setSize(12,28);
         detective.setLocation(250,30);
         detective.setVisible(true);
-        //game.add(detective);
+        game.add(detective);
         location = handler.getLocation();
     }
 

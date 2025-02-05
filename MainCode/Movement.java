@@ -199,7 +199,7 @@ public class Movement implements KeyListener{
         location = handler.detectLREdge(ET, location, energyUI);
         location = handler.detectUDEdge(ET, location, energyUI);
     
-        int intPrevLocal = handler.detectpit(ET, location, energyUI);
+        intPrevLocal = handler.detectpit(ET, location, energyUI);
 
         }
 
