@@ -50,7 +50,7 @@ public class Movement implements KeyListener{
         energyUI.setLocation(140,160);
         energyUI.setSize(100,30);
         energyUI.setVisible(true);
-        arrows.setLocation(14,158);
+        arrows.setLocation(152,4);
         arrows.setSize(16,16);
         arrows.setVisible(true);
         game.add(arrows);
