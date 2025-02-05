@@ -1436,6 +1436,7 @@ public class SceneHandler extends Movement {
         if (Movement.location == 10 && ET.getY() <= 20){
             System.out.println("left pit");
             ET.setLocation(ET.getX(),140);
+            game.add(GreatComputer.detective);
             Movement.location = previousLocation;
             setTile(ET, energyUI, arrows);
             Movement.isInPit = false;

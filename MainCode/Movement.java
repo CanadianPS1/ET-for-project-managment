@@ -231,6 +231,5 @@ public class Movement implements KeyListener{
     }
     public static void setCanMove(boolean cm){
         canMove = cm;
-    
     }
 }
