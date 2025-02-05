@@ -115,5 +115,12 @@ public class PhonePieceSpawns extends SceneHandler{
             }
             default -> System.err.println("ERROR: invalid map id at phone piece 3 Map spawns");
         }
+        System.out.println("phone pice 1 map" + phonePiece1Map);
+        System.out.println(phonePiece1Hole);
+        System.out.println("phone pice 1 map" + phonePiece2Map);
+        System.out.println(phonePiece2Hole);
+        System.out.println("phone pice 1 map" + phonePiece3Map);
+        System.out.println(phonePiece3Hole);
+
     }
 }

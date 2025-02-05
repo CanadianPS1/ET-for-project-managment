@@ -21,7 +21,6 @@ public class GreatComputer extends SceneHandler{
         detective.setLocation(250,30);
         detective.setVisible(true);
         game.add(detective);
-        location = handler.getLocation();
     }
 
     public GreatComputer(JFrame g, int e) {
@@ -29,7 +28,6 @@ public class GreatComputer extends SceneHandler{
     }
     //this checks and compares ets location with the detective then moves the det ective tword him
     public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
-        location = handler.getLocation();
         energy = e;
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
@@ -190,8 +188,8 @@ public class GreatComputer extends SceneHandler{
                 ET.setLocation(ETX, ETY);
                 detective.setLocation(ET.getX() - 10, ET.getY());
                 count += 1;
-                location = handler.detectLREdge(ET, location, energyUI);
-                location = handler.detectUDEdge(ET, location, energyUI);
+                handler.detectLREdge(ET, energyUI);
+                handler.detectUDEdge(ET, energyUI);
                 System.out.println("location: " + location);
                 if(location == 6){
                     running = false;

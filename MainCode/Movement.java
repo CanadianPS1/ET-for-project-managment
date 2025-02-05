@@ -11,7 +11,7 @@ public class Movement implements KeyListener{
     protected JFrame game;
     protected JLabel ET;
     private int moveAnimationSpot = 0;
-    private int location; // this is where ET starts the game
+    protected static int location; // this is where ET starts the game
     private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
     private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
     private final ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
@@ -69,7 +69,7 @@ public class Movement implements KeyListener{
 
         game.add(ET);
 
-        handler.setTile(location, ET, energyUI);
+        handler.setTile(ET, energyUI);
         Runnable shipAnimationRunnable = shipAnimetion();
         scheduler.scheduleAtFixedRate(shipAnimationRunnable, 5, 200, TimeUnit.MILLISECONDS);
         shipAnimationThread.start();
@@ -163,22 +163,18 @@ public class Movement implements KeyListener{
                 case KeyEvent.VK_W -> {
                     ETMoveAnimation(ET);
                     ET.setLocation(ET.getX(), ET.getY() - 2);
-                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_A -> {
                     ET.setLocation(ET.getX() - 2, ET.getY());
                     ETMoveAnimation(ET);
-                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_S -> {
                     ET.setLocation(ET.getX(), ET.getY() + 2);
                     ETMoveAnimation(ET);
-                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 case KeyEvent.VK_D -> {
                     ET.setLocation(ET.getX() + 2, ET.getY());
                     ETMoveAnimation(ET);
-                    System.out.println(ET.getX() + ", " + ET.getY());
                 }
                 //once var is made we need to add && etInHole into the if statment for the space bar
                 case KeyEvent.VK_SPACE -> {
@@ -196,15 +192,16 @@ public class Movement implements KeyListener{
             energyUI.setText("0");
         }
         
-        if(handler.getLocation() != 10){
-        location = handler.detectLREdge(ET, location, energyUI);
-        location = handler.detectUDEdge(ET, location, energyUI);
+        if(location != 10){
+        handler.detectLREdge(ET, energyUI);
+        handler.detectUDEdge(ET, energyUI);
     
-        intPrevLocal = handler.detectpit(ET, location, energyUI);
+        SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
 
         }
 
-        handler.checkPitLeave(ET, key, energyUI, intPrevLocal);
+        handler.checkPitLeave(ET, energyUI);
+
     }
     @Override
     public void keyReleased(KeyEvent e) {
