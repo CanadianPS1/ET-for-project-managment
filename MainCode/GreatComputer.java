@@ -40,7 +40,7 @@ public class GreatComputer extends SceneHandler{
         if(ET.getY() < detective.getY()){
             detective.setLocation(detective.getX(), detective.getY() - 2);
         }
-        if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
+        if(ET.getX() == detective.getX() && ET.getY() == detective.getY() && game.getContentPane().isAncestorOf(detective)){
             detectiveGrab(ET, handler, energyUI);
             energy = energy - 50;
         }
