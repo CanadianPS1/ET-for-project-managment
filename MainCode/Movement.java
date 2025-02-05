@@ -125,19 +125,19 @@ public class Movement implements KeyListener{
     }
   
     //Plays ETs second animation for when he flys
-    public JLabel ETFlyAnimation(JLabel ET){
-        switch (moveAnimationSpot) {
+    public JLabel ETFlyAnimation(JLabel ET, int mas){
+        switch (mas) {
             case 0 -> {
                 ET.setIcon(ETFlyOne);
-                moveAnimationSpot = 1;
+                mas = 1;
             }
             case 1 -> {
                 ET.setIcon(ETFlyTwo);
-                moveAnimationSpot = 2;
+                mas = 2;
             }
             case 2 ->{
                 ET.setIcon(ETFlyThree);
-                moveAnimationSpot = 3;
+                mas = 3;
             }
             default -> {
                 ET.setIcon(ETFlyThree);
@@ -185,8 +185,10 @@ public class Movement implements KeyListener{
                 //once var is made we need to add && etInHole into the if statment for the space bar
                 if(isInPit){
                     ET.setLocation(ET.getX(), ET.getY() - 2);
-                    ETFlyAnimation(ET);
+                    ETFlyAnimation(ET, 0);
                     energy = energy - 18;
+                }else{
+                    ETFlyAnimation(ET, 0);
                 }
                 else{
                     handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
