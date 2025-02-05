@@ -28,7 +28,7 @@ public class Movement implements KeyListener{
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     protected int energy;
     protected int intPrevLocal;
-    private static boolean canMove = true;
+    protected static boolean canMove = true;
     public Movement(JFrame g, int e){
         game = g;
         handler = new SceneHandler(g, e);
@@ -140,8 +140,8 @@ public class Movement implements KeyListener{
         Runnable shipAnimationRunnable = () -> {
             if(inAnimation){
                 if(ET.getY() <= 100){
-                    ET.setLocation(ET.getX(), ET.getY() + 5);
-                    ship.setLocation(ship.getX(), ship.getY() + 5);
+                    ET.setLocation(ET.getX(), ET.getY() + 6);
+                    ship.setLocation(ship.getX(), ship.getY() + 6);
 
                 }else{
                     inAnimation = false;
