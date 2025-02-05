@@ -188,6 +188,9 @@ public class Movement implements KeyListener{
                     ETFlyAnimation(ET);
                     energy = energy - 18;
                 }
+                else{
+                    handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
+                }
             }
             energy--;
             energyUI.setText(energy + "");
@@ -201,8 +204,6 @@ public class Movement implements KeyListener{
         handler.detectUDEdge(ET, energyUI, arrows);
     
         SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
-
-        handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
 
         handler.checkPitLeave(ET, energyUI);
         }
