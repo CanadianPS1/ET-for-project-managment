@@ -9,7 +9,6 @@ public class GreatComputer extends SceneHandler{
     private int moveAnimationSpot = 0;
     protected static JLabel detective;
     //private JLabel ET;
-    private int location;
     private Thread forcingRight;
     private int count = 1;
     private boolean running = true;
@@ -21,7 +20,6 @@ public class GreatComputer extends SceneHandler{
         detective.setLocation(250,30);
         detective.setVisible(true);
         game.add(detective);
-        location = handler.getLocation();
     }
 
     public GreatComputer(JFrame g, int e) {
@@ -29,7 +27,6 @@ public class GreatComputer extends SceneHandler{
     }
     //this checks and compares ets location with the detective then moves the det ective tword him
     public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
-        location = handler.getLocation();
         energy = e;
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
@@ -92,7 +89,7 @@ public class GreatComputer extends SceneHandler{
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.setCanMove(false);
             running = true;
-            switch (location) {
+            switch (Movement.location) {
                 case 4 -> {
                     forceRight(ET, handler, 26, ET.getX() + 10, ET.getY(), energyUI);
                     forcingRight.start();
@@ -126,7 +123,7 @@ public class GreatComputer extends SceneHandler{
                 case 6 -> {
                     Movement.setCanMove(true);
                     running = false;
-                    location = 6;
+                    Movement.location = 6;
                 }
                 case 7 -> {
                     forceRight(ET, handler, 26, ET.getX() - 10, ET.getY(), energyUI);
@@ -190,10 +187,10 @@ public class GreatComputer extends SceneHandler{
                 ET.setLocation(ETX, ETY);
                 detective.setLocation(ET.getX() - 10, ET.getY());
                 count += 1;
-                location = handler.detectLREdge(ET, location, energyUI, arrows);
-                location = handler.detectUDEdge(ET, location, energyUI, arrows);
-                System.out.println("location: " + location);
-                if(location == 6){
+                handler.detectLREdge(ET, energyUI, arrows);
+                handler.detectUDEdge(ET, energyUI, arrows);
+                System.out.println("location: " + Movement.location);
+                if(Movement.location == 6){
                     running = false;
                     count = amountMoved;
                     Movement.setCanMove(true);
