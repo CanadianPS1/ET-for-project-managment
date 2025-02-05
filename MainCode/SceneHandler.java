@@ -381,7 +381,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 3 || PhonePieceSpawns.phonePiece2Map == 7){
                         if(PhonePieceSpawns.phonePiece2Hole == 3){
@@ -397,7 +397,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece3Map == 3 || PhonePieceSpawns.phonePiece3Map == 7){
                         if(PhonePieceSpawns.phonePiece3Hole == 3){
@@ -413,7 +413,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -442,7 +442,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 3 || PhonePieceSpawns.phonePiece2Map == 7){
                         if(PhonePieceSpawns.phonePiece2Hole == 4){
@@ -458,7 +458,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece3Map == 3 || PhonePieceSpawns.phonePiece3Map == 7){
                         if(PhonePieceSpawns.phonePiece3Hole == 4){
@@ -474,7 +474,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -503,7 +503,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 3 || PhonePieceSpawns.phonePiece2Map == 7){
                         if(PhonePieceSpawns.phonePiece2Hole == 1){
@@ -519,7 +519,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece3Map == 3 || PhonePieceSpawns.phonePiece3Map == 7){
                         if(PhonePieceSpawns.phonePiece3Hole == 1){
@@ -535,7 +535,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -564,7 +564,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 3 || PhonePieceSpawns.phonePiece2Map == 7){
                         if(PhonePieceSpawns.phonePiece2Hole == 2){
@@ -580,7 +580,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece3Map == 3 || PhonePieceSpawns.phonePiece3Map == 7){
                         if(PhonePieceSpawns.phonePiece3Hole == 2){
@@ -596,7 +596,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -628,7 +628,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece2Hole == 3){
@@ -644,7 +644,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece3Hole == 3){
@@ -660,7 +660,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -689,7 +689,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece2Hole == 4){
@@ -705,7 +705,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece3Hole == 4){
@@ -721,7 +721,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -750,7 +750,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece2Hole == 1){
@@ -766,7 +766,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece3Hole == 1){
@@ -782,7 +782,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -811,7 +811,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece2Hole == 2){
@@ -827,7 +827,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 1 || PhonePieceSpawns.phonePiece2Map == 2){
                         if(PhonePieceSpawns.phonePiece3Hole == 2){
@@ -843,7 +843,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -875,7 +875,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece2Hole == 1){
@@ -891,7 +891,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece3Hole == 1){
@@ -907,7 +907,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -936,7 +936,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece2Hole == 2){
@@ -952,7 +952,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece3Hole == 2){
@@ -968,7 +968,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -997,7 +997,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece2Hole == 3){
@@ -1013,7 +1013,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece3Hole == 3){
@@ -1029,7 +1029,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1058,7 +1058,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece2Hole == 4){
@@ -1074,7 +1074,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 8 || PhonePieceSpawns.phonePiece2Map == 9){
                         if(PhonePieceSpawns.phonePiece3Hole == 4){
@@ -1090,7 +1090,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1122,7 +1122,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 4){
@@ -1138,7 +1138,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 4){
@@ -1154,7 +1154,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1182,7 +1182,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 5){
@@ -1198,7 +1198,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 5){
@@ -1214,7 +1214,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1242,7 +1242,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 2){
@@ -1258,7 +1258,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 2){
@@ -1274,7 +1274,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1303,7 +1303,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 7){
@@ -1319,7 +1319,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 7){
@@ -1335,7 +1335,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1363,7 +1363,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 8){
@@ -1379,7 +1379,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 8){
@@ -1395,7 +1395,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1423,7 +1423,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 3){
@@ -1439,7 +1439,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 3){
@@ -1455,7 +1455,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1484,7 +1484,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 1){
@@ -1500,7 +1500,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 1){
@@ -1516,7 +1516,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1545,7 +1545,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1);
+                            blnPhonePiece1Alive = pieceCollection(JLphonePiece1, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece2Hole == 6){
@@ -1561,7 +1561,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2);
+                            blnPhonePiece2Alive = pieceCollection(JLphonePiece2, intNumPiece);
                         }
                     }else if(PhonePieceSpawns.phonePiece2Map == 5){
                         if(PhonePieceSpawns.phonePiece3Hole == 6){
@@ -1577,7 +1577,7 @@ public class SceneHandler extends Movement {
                             game.add(ET);
                             game.add(background);
                             game.update(game.getGraphics());
-                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3);
+                            blnPhonePiece3Alive = pieceCollection(JLphonePiece3, intNumPiece);
                         }
                     }else{
                         System.err.println("ERROR: piece thought it was in the wrong spot");
@@ -1602,7 +1602,7 @@ public class SceneHandler extends Movement {
     }
 
     // deletes piece if it got collected
-    private boolean pieceCollection(JLabel phonePiece){
+    private boolean pieceCollection(JLabel phonePiece, int intNumPiece){
         if(previousLocation == PhonePieceSpawns.phonePiece1Map || previousLocation == PhonePieceSpawns.phonePiece2Map || previousLocation == PhonePieceSpawns.phonePiece3Map){
             if(phonePiece == JLphonePiece1 && blnPhonePiece1Alive){
                 if(Movement.location == 10 && ET.getX() >= 140 && ET.getX() <= 156 && ET.getY() >= 128 && ET.getY() <= 138){
