@@ -28,6 +28,7 @@ public class GreatComputer extends SceneHandler{
     //this checks and compares ets location with the detective then moves the det ective tword him
     public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
         energy = e;
+        System.out.println("checked for grab");
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
         }
@@ -41,7 +42,7 @@ public class GreatComputer extends SceneHandler{
             detective.setLocation(detective.getX(), detective.getY() - 2);
         }
         if(ET.getX() == detective.getX() && ET.getY() == detective.getY()){
-            
+            System.out.println("grabbed");
             detectiveGrab(ET, handler, energyUI);
             energy = energy - 50;
         }
@@ -87,7 +88,7 @@ public class GreatComputer extends SceneHandler{
     }
     public void detectiveGrab(JLabel ET, SceneHandler handler, JLabel energyUI){
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
-            Movement.setCanMove(false);
+            Movement.canMove = false;
             running = true;
             switch (Movement.location) {
                 case 4 -> {
@@ -95,7 +96,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -105,7 +106,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -115,13 +116,13 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
                 }
                 case 6 -> {
-                    Movement.setCanMove(true);
+                    Movement.canMove = true;
                     running = false;
                     Movement.location = 6;
                 }
@@ -130,7 +131,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -140,7 +141,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -150,7 +151,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -160,7 +161,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -170,7 +171,7 @@ public class GreatComputer extends SceneHandler{
                     forcingRight.start();
                     if(count == 26){
                         running = false;
-                        Movement.setCanMove(true);
+                        Movement.canMove = true;
                     }   if(!running){
                         count = 0;
                     }
@@ -193,7 +194,7 @@ public class GreatComputer extends SceneHandler{
                 if(Movement.location == 6){
                     running = false;
                     count = amountMoved;
-                    Movement.setCanMove(true);
+                    Movement.canMove = true;
                     energy = energy - 900;
                 }
             }
