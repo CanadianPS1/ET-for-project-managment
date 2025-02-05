@@ -18,7 +18,7 @@ public class SceneHandler extends Movement {
     ImageIcon phonePiece2 = new ImageIcon("seperated sprites\\E.T\\PhonePieces\\PhonePiece02.png");
     ImageIcon phonePiece3 = new ImageIcon("seperated sprites\\E.T\\PhonePieces\\PhonePiece03.png");
 
-    private int intNumPiece;
+    private static int intNumPiece;
 
     JLabel JLphonePiece1;
     JLabel JLphonePiece2;
