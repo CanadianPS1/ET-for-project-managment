@@ -189,7 +189,10 @@ public class Movement implements KeyListener{
                     energy = energy - 18;
                 }else{
                     ETFlyAnimation(ET, 0);
+
+                    handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
                 }
+
             }
             energy--;
             energyUI.setText(energy + "");
@@ -204,11 +207,7 @@ public class Movement implements KeyListener{
     
         SceneHandler.previousLocation = handler.detectpit(ET, energyUI);
 
-        handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
-
-        }
-        if(location == 10){
-            handler.checkPitLeave(ET, energyUI);
+        handler.checkPitLeave(ET, energyUI);
         }
     }
     @Override
