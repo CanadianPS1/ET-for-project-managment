@@ -1,5 +1,3 @@
-package MainCode;
-
 enum Directions {
 
     L,R,

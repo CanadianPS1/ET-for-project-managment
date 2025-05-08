@@ -1,14 +1,16 @@
-package MainCode;
-import java.util.Random;
-
 import javax.swing.JFrame;
-public class PhonePieceSpawns extends SceneHandler{
-    private Random rand = new Random();
-    protected static int phonePiece1Map, phonePiece1Hole;
-    protected static int phonePiece2Map, phonePiece2Hole;
-    protected static int phonePiece3Map, phonePiece3Hole;
+#include <iostream>
+using namespace std;
+class PhonePieceSpawns extends SceneHandler{
+    private:
+    Random rand = new Random();
+    protected:
+    static int phonePiece1Map, phonePiece1Hole;
+    static int phonePiece2Map, phonePiece2Hole;
+    static int phonePiece3Map, phonePiece3Hole;
 
-    public PhonePieceSpawns(JFrame g, int e){
+    public:
+    PhonePieceSpawns(JFrame g, int e){
         super(g,e);
         phonePiece1Map = rand.nextInt(1,5);
         phonePiece2Map = rand.nextInt(1,5);
@@ -115,12 +117,12 @@ public class PhonePieceSpawns extends SceneHandler{
             }
             default -> System.err.println("ERROR: invalid map id at phone piece 3 Map spawns");
         }
-        System.out.println("phone pice 1 map" + phonePiece1Map);
-        System.out.println(phonePiece1Hole);
-        System.out.println("phone pice 1 map" + phonePiece2Map);
-        System.out.println(phonePiece2Hole);
-        System.out.println("phone pice 1 map" + phonePiece3Map);
-        System.out.println(phonePiece3Hole);
+        cout<< "phone pice 1 map" << phonePiece1Map;
+        cout<< phonePiece1Hole;
+        cout<< "phone pice 1 map" << phonePiece2Map;
+        cout<< phonePiece2Hole;
+        cout<< "phone pice 1 map" << phonePiece3Map;
+        cout<< phonePiece3Hole;
 
     }
 }
