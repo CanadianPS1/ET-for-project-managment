@@ -1,9 +1,8 @@
 //This program creates and moves the detective to make him move in ETs derection
 //import javax.swing.*;
 #include <iostream>
-#include "SceneHandler.c++"
 using namespace std;
-class GreatComputer : public SceneHandler{
+class GreatComputer extends SceneHandler{
     private:
     const ImageIcon detectiveMove1 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA1.png");
     const ImageIcon detectiveMove2 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA2.png");
@@ -179,7 +178,7 @@ class GreatComputer : public SceneHandler{
                         count = 0;
                     }
                 }
-                default -> cout<< "Error: invalid tile";
+                default -> System.err.println("Error: invalid tile");
 
             }
         }
@@ -193,7 +192,6 @@ class GreatComputer : public SceneHandler{
                 count += 1;
                 handler.detectLREdge(ET, energyUI, arrows);
                 handler.detectUDEdge(ET, energyUI, arrows);
-                System.out.println("location: " + Movement.location);
                 if(Movement.location == 6){
                     running = false;
                     count = amountMoved;

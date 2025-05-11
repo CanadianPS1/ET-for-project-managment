@@ -1,6 +1,8 @@
-#include "StartMenu.c++";
+#include <iostream>
+#include "StartMenu.c++"
+using namespace std;
 int main(){
-    StartMenu game
+    StartMenu game;
     game.StartMenu();
     return 0;
 }

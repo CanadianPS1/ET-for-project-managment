@@ -1,3 +1,4 @@
+import javax.swing.JFrame;
 #include <iostream>
 using namespace std;
 class PhonePieceSpawns extends SceneHandler{
@@ -116,12 +117,16 @@ class PhonePieceSpawns extends SceneHandler{
             }
             default -> System.err.println("ERROR: invalid map id at phone piece 3 Map spawns");
         }
+<<<<<<< HEAD:MainCode/PhonePieceSpawns.c++
         cout<< "phone pice 1 map" << phonePiece1Map;
         cout<< phonePiece1Hole;
         cout<< "phone pice 1 map" << phonePiece2Map;
         cout<< phonePiece2Hole;
         cout<< "phone pice 1 map" << phonePiece3Map;
         cout<< phonePiece3Hole;
+=======
+        
+>>>>>>> 3555f48a0f845d527d066568f41f96a358c6a156:MainCode/PhonePieceSpawns.java
 
     }
 }

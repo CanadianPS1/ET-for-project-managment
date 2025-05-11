@@ -35,7 +35,7 @@ class Movement implements KeyListener{
     static bool isInPit = false;
     static JLabel energyUI;
     const JLabel arrows = new JLabel();
-    JLabel ET;
+    protected JLabel ET;
     JFrame game;
 
     static int location; // this is where ET starts the game
@@ -44,12 +44,15 @@ class Movement implements KeyListener{
     void Movement(JFrame g, int e){
         game = g;
         handler = new SceneHandler(g, e);
+        SceneHandler.intNumPiece = 0;
         energy = e;
     }
+    public:
     Movement(){
     }
     //Makes ET and starts the detectives movement
-    void ETMoveFirstRun(int e){
+    public:
+     void ETMoveFirstRun(int e){
         inAnimation = true;
         canMove = false;
         energy = e;
@@ -92,6 +95,7 @@ class Movement implements KeyListener{
         new PhonePieceSpawns(game, energy);
     }
     //Plays ETs animaton for when hes walking
+    public:
     JLabel ETMoveAnimation(JLabel ET){
 
         String strSoundPath;
@@ -155,7 +159,11 @@ class Movement implements KeyListener{
 
         Runnable shipAnimationRunnable = () -> {
             if(inAnimation){
-                if(ET.getY() <= 100){
+                if(SceneHandler.intNumPiece >= 3){
+                    ET.setLocation(ET.getX(), ET.getY() - 6);
+                    ship.setLocation(ship.getX(), ship.getY() - 6);
+
+                }else if(ET.getY() <= 100){
                     ET.setLocation(ET.getX(), ET.getY() + 6);
                     ship.setLocation(ship.getX(), ship.getY() + 6);
 
@@ -171,7 +179,7 @@ class Movement implements KeyListener{
         return shipAnimationRunnable;
     }
     //these methods are for detecting keypresses then moving ET to those spots
-    override
+    Override
     void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if(energy > 0 && canMove){
@@ -195,8 +203,12 @@ class Movement implements KeyListener{
                     energy = energy - 18;
                 }else{
                     ETFlyAnimation(ET, 0);
-
                     handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
+                    if(location == 4 && SceneHandler.intNumPiece >= 3){
+                        canMove = false;
+                        ET.setLocation(156,102);
+                        inAnimation = true;
+                    }
                 }
 
             }
@@ -218,14 +230,14 @@ class Movement implements KeyListener{
             handler.checkPitLeave(ET, energyUI);
         }
     }
-    override
+    Override
     void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_W || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_D || key == KeyEvent.VK_SPACE) {
             ET.setIcon(ETIdle);
         }
     }
-    override
+    Override
     void keyTyped(KeyEvent e) {
         int key = e.getKeyCode();
         switch (key) {
@@ -235,7 +247,7 @@ class Movement implements KeyListener{
             case KeyEvent.VK_D -> ET.setLocation(ET.getX() + 5, ET.getY());
         }
     }
-    static void setCanMove(bool cm){
+    static void setCanMove(boolean cm){
         canMove = cm;
     }
 }

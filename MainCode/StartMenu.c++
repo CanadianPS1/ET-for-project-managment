@@ -1,18 +1,15 @@
-//makes the starting screen and lets you click it
-package MainCode;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.sound.sampled.Clip;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-public class StartMenu implements ActionListener{
-    protected JFrame game;
-    private final ImageIcon startScreenIcon;
-    private final JButton startButton;
-    protected Clip strSound;
+#include <QApplication>
+#include <QPushButton>
+class StartMenu{
+    protected:
+    Clip strSound;
+    JFrame game;
+    private:
+    const ImageIcon startScreenIcon;
+    const JButton startButton;
     //makes the JFrame and puts a button in it so you can start the game
-    public StartMenu(){
+    public:
+    StartMenu(){
         startScreenIcon = new ImageIcon("seperated sprites\\Screens\\MainMenue.png");
         ImageIcon gameIcon = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
         game = new JFrame("Extra Terrestrial");
@@ -37,8 +34,8 @@ public class StartMenu implements ActionListener{
     }
     //the method for when you click the button
     //it disables its self then makes ET and all that jazz
-    @Override
-    public void actionPerformed(ActionEvent e){
+    override
+    void actionPerformed(ActionEvent e){
         int energy = 9999;
         startButton.setVisible(false);
         game.remove(startButton);
@@ -50,7 +47,6 @@ public class StartMenu implements ActionListener{
         soundHandler.sounndOff(strSound);
 
 
-        @SuppressWarnings("unused")
         SceneHandler handler = new SceneHandler(game, energy);
 
     }  
