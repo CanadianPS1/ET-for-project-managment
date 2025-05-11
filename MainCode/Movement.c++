@@ -44,6 +44,7 @@ class Movement implements KeyListener{
     void Movement(JFrame g, int e){
         game = g;
         handler = new SceneHandler(g, e);
+        SceneHandler.intNumPiece = 0;
         energy = e;
     }
     public:
@@ -158,7 +159,11 @@ class Movement implements KeyListener{
 
         Runnable shipAnimationRunnable = () -> {
             if(inAnimation){
-                if(ET.getY() <= 100){
+                if(SceneHandler.intNumPiece >= 3){
+                    ET.setLocation(ET.getX(), ET.getY() - 6);
+                    ship.setLocation(ship.getX(), ship.getY() - 6);
+
+                }else if(ET.getY() <= 100){
                     ET.setLocation(ET.getX(), ET.getY() + 6);
                     ship.setLocation(ship.getX(), ship.getY() + 6);
 
@@ -198,8 +203,12 @@ class Movement implements KeyListener{
                     energy = energy - 18;
                 }else{
                     ETFlyAnimation(ET, 0);
-
                     handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
+                    if(location == 4 && SceneHandler.intNumPiece >= 3){
+                        canMove = false;
+                        ET.setLocation(156,102);
+                        inAnimation = true;
+                    }
                 }
 
             }
