@@ -2,8 +2,8 @@ package MainCode;
 
 import javax.swing.*;
 
-
-public class SceneHandler extends Movement {
+class SceneHandler : public Movement {
+    public:
     ImageIcon pit3 = new ImageIcon("seperated sprites\\Screens\\Pits03.png");
     ImageIcon pit2 = new ImageIcon("seperated sprites\\Screens\\Pits02.png");
     ImageIcon forest = new ImageIcon("seperated sprites\\Screens\\Forest.png");
@@ -18,20 +18,25 @@ public class SceneHandler extends Movement {
     ImageIcon phonePiece2 = new ImageIcon("seperated sprites\\E.T\\PhonePieces\\PhonePiece02.png");
     ImageIcon phonePiece3 = new ImageIcon("seperated sprites\\E.T\\PhonePieces\\PhonePiece03.png");
 
-    private static int intNumPiece;
-
     JLabel JLphonePiece1;
     JLabel JLphonePiece2;
     JLabel JLphonePiece3;
 
-    private boolean blnPhonePiece1Alive = true;
-    private boolean blnPhonePiece2Alive = true;
-    private boolean blnPhonePiece3Alive = true;
+    private:
+    static int intNumPiece;
 
-    private final JLabel background;
-    private String direction;
-    protected static int previousLocation;
-    public SceneHandler(JFrame g, int e){
+    
+
+    bool blnPhonePiece1Alive = true;
+    bool blnPhonePiece2Alive = true;
+    bool blnPhonePiece3Alive = true;
+
+    const JLabel background;
+    string direction;
+    protected:
+    static int previousLocation;
+    public:
+    SceneHandler(JFrame g, int e){
         game = g;     
         background = new JLabel();
 
@@ -42,7 +47,7 @@ public class SceneHandler extends Movement {
 
         game.add(background);           
     }
-    public void checkTile(JLabel et, JLabel energyUI, JLabel arrows){
+    void checkTile(JLabel et, JLabel energyUI, JLabel arrows){
         ET = et;
         switch (Movement.location) {
             case 1 -> {
@@ -148,7 +153,7 @@ public class SceneHandler extends Movement {
             }
         }
     }
-    public void setTile(JLabel ET, JLabel energyUI1, JLabel arrows){
+    void setTile(JLabel ET, JLabel energyUI1, JLabel arrows){
         switch (location) {
             case 1 -> background.setIcon(pit3);
             case 2 -> background.setIcon(pit3);
@@ -176,7 +181,7 @@ public class SceneHandler extends Movement {
         game.update(game.getGraphics());
     }
 
-    public void arrowHandler(JLabel arrows, ImageIcon arrowLeft, ImageIcon arrowRight, ImageIcon arrowUp, ImageIcon arrowDown, int location){
+    void arrowHandler(JLabel arrows, ImageIcon arrowLeft, ImageIcon arrowRight, ImageIcon arrowUp, ImageIcon arrowDown, int location){
         if(location == 3 || location == 4 || location == 5 || location == 6 || location == 7){
             if(blnPhonePiece1Alive){}
                 if(PhonePieceSpawns.phonePiece1Map > location){
@@ -307,7 +312,7 @@ public class SceneHandler extends Movement {
     }
 
     // detects Left and right edges of the screen
-    public void detectLREdge(JLabel ET, JLabel energyUI, JLabel arrows){
+    void detectLREdge(JLabel ET, JLabel energyUI, JLabel arrows){
         // Left edge
         if (ET.getX() <= 30 ){
             System.out.println("Edge Detected");
@@ -329,7 +334,7 @@ public class SceneHandler extends Movement {
         }
     }
 
-    public void detectUDEdge(JLabel ET, JLabel energyUI, JLabel arrows){
+    void detectUDEdge(JLabel ET, JLabel energyUI, JLabel arrows){
         // Top edge
         if (ET.getY() <= 20){
             System.out.println("Edge Detected");
@@ -352,7 +357,7 @@ public class SceneHandler extends Movement {
         }
     }
 
-    public int detectpit(JLabel ET,  JLabel energyUI){
+    int detectpit(JLabel ET,  JLabel energyUI){
 
         previousLocation = Movement.location;
 
@@ -1590,7 +1595,7 @@ public class SceneHandler extends Movement {
         }
         return previousLocation;
     }
-    public void checkPitLeave(JLabel ET, JLabel energyUI){
+    void checkPitLeave(JLabel ET, JLabel energyUI){
         if (Movement.location == 10 && ET.getY() <= 20){
             System.out.println("left pit");
             ET.setLocation(ET.getX(),140);
@@ -1602,7 +1607,8 @@ public class SceneHandler extends Movement {
     }
 
     // deletes piece if it got collected
-    private boolean pieceCollection(JLabel phonePiece, int intNumPiece){
+    private:
+    bool pieceCollection(JLabel phonePiece, int intNumPiece){
         if(previousLocation == PhonePieceSpawns.phonePiece1Map || previousLocation == PhonePieceSpawns.phonePiece2Map || previousLocation == PhonePieceSpawns.phonePiece3Map){
             if(phonePiece == JLphonePiece1 && blnPhonePiece1Alive){
                 if(Movement.location == 10 && ET.getX() >= 140 && ET.getX() <= 156 && ET.getY() >= 128 && ET.getY() <= 138){
