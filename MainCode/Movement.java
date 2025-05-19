@@ -7,49 +7,44 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-class Movement implements KeyListener{
-    
-    private:
-    const ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
-    const ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
-    const ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
-    const ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
-    const ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
-    const ImageIcon ETDead = new ImageIcon("seperated sprites\\E.T\\ETDeath06.png");
-    const ImageIcon shipIco = new ImageIcon("seperated sprites\\E.T\\Ship\\ETShip01.png");
-    const ImageIcon arrowUp = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowUp.png");
-    const ImageIcon arrowDown = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowDown.png");
-    const ImageIcon arrowLeft = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowLeft.png");
-    const ImageIcon arrowRight = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowRight.png");
-    const JLabel ship = new JLabel(shipIco);
-    Thread shipAnimationThread;
-    boolean inAnimation;
-    SceneHandler handler;
-    const ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    int moveAnimationSpot = 0;
-
-    protected:
-    int energy;
-    int intPrevLocal;
-    static bool canMove = true;
-    static bool isInPit = false;
-    static JLabel energyUI;
-    const JLabel arrows = new JLabel();
-    JLabel ET;
-    JFrame game;
-
-    static int location; // this is where ET starts the game
-
-    public:
-    void Movement(JFrame g, int e){
+public class Movement implements KeyListener{
+    protected JFrame game;
+    protected JLabel ET;
+    private int moveAnimationSpot = 0;
+    protected static int location; // this is where ET starts the game
+    private final ImageIcon ETIdle = new ImageIcon("seperated sprites\\E.T\\ETIdle.png");
+    private final ImageIcon ETMoveOne = new ImageIcon("seperated sprites\\E.T\\ETWalk01.png");
+    private final ImageIcon ETMoveTwo = new ImageIcon("seperated sprites\\E.T\\ETWalk02.png");
+    private final ImageIcon ETFlyOne = new ImageIcon("seperated sprites\\E.T\\ETStretch01.png");
+    private final ImageIcon ETFlyTwo = new ImageIcon("seperated sprites\\E.T\\ETStretch02.png");
+    private final ImageIcon ETFlyThree = new ImageIcon("seperated sprites\\E.T\\ETStretch03.png");
+    private final ImageIcon ETDead = new ImageIcon("seperated sprites\\E.T\\ETDeath06.png");
+    private final ImageIcon shipIco = new ImageIcon("seperated sprites\\E.T\\Ship\\ETShip01.png");
+    private final ImageIcon arrowUp = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowUp.png");
+    private final ImageIcon arrowDown = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowDown.png");
+    private final ImageIcon arrowLeft = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowLeft.png");
+    private final ImageIcon arrowRight = new ImageIcon("seperated sprites\\UI\\Arrows\\ArrowRight.png");
+    private final JLabel ship = new JLabel(shipIco);
+    protected final JLabel arrows = new JLabel();
+    private Thread shipAnimationThread;
+    private boolean inAnimation;
+    protected static JLabel energyUI;
+    private SceneHandler handler;
+    protected static boolean isInPit = false;
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+    protected int energy;
+    protected int intPrevLocal;
+    protected static boolean canMove = true;
+    public Movement(JFrame g, int e){
         game = g;
         handler = new SceneHandler(g, e);
+        SceneHandler.intNumPiece = 0;
         energy = e;
     }
-    Movement(){
+    public Movement(){
     }
     //Makes ET and starts the detectives movement
-    void ETMoveFirstRun(int e){
+    public void ETMoveFirstRun(int e){
         inAnimation = true;
         canMove = false;
         energy = e;
@@ -92,7 +87,7 @@ class Movement implements KeyListener{
         new PhonePieceSpawns(game, energy);
     }
     //Plays ETs animaton for when hes walking
-    JLabel ETMoveAnimation(JLabel ET){
+    public JLabel ETMoveAnimation(JLabel ET){
 
         String strSoundPath;
         
@@ -131,7 +126,7 @@ class Movement implements KeyListener{
     }
   
     //Plays ETs second animation for when he flys
-    JLabel ETFlyAnimation(JLabel ET, int mas){
+    public JLabel ETFlyAnimation(JLabel ET, int mas){
         switch (mas) {
             case 0 -> {
                 ET.setIcon(ETFlyOne);
@@ -151,11 +146,15 @@ class Movement implements KeyListener{
         }
         return ET;
     }
-    Runnable shipAnimetion(){
+    public Runnable shipAnimetion(){
 
         Runnable shipAnimationRunnable = () -> {
             if(inAnimation){
-                if(ET.getY() <= 100){
+                if(SceneHandler.intNumPiece >= 3){
+                    ET.setLocation(ET.getX(), ET.getY() - 6);
+                    ship.setLocation(ship.getX(), ship.getY() - 6);
+
+                }else if(ET.getY() <= 100){
                     ET.setLocation(ET.getX(), ET.getY() + 6);
                     ship.setLocation(ship.getX(), ship.getY() + 6);
 
@@ -171,8 +170,8 @@ class Movement implements KeyListener{
         return shipAnimationRunnable;
     }
     //these methods are for detecting keypresses then moving ET to those spots
-    override
-    void keyPressed(KeyEvent e) {
+    @Override
+    public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if(energy > 0 && canMove){
             if(key == KeyEvent.VK_W && !isInPit){
@@ -195,8 +194,12 @@ class Movement implements KeyListener{
                     energy = energy - 18;
                 }else{
                     ETFlyAnimation(ET, 0);
-
                     handler.arrowHandler(arrows, arrowLeft, arrowRight, arrowUp, arrowDown, location);
+                    if(location == 4 && SceneHandler.intNumPiece >= 3){
+                        canMove = false;
+                        ET.setLocation(156,102);
+                        inAnimation = true;
+                    }
                 }
 
             }
@@ -218,15 +221,15 @@ class Movement implements KeyListener{
             handler.checkPitLeave(ET, energyUI);
         }
     }
-    override
-    void keyReleased(KeyEvent e) {
+    @Override
+    public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_W || key == KeyEvent.VK_A || key == KeyEvent.VK_S || key == KeyEvent.VK_D || key == KeyEvent.VK_SPACE) {
             ET.setIcon(ETIdle);
         }
     }
-    override
-    void keyTyped(KeyEvent e) {
+    @Override
+    public void keyTyped(KeyEvent e) {
         int key = e.getKeyCode();
         switch (key) {
             case KeyEvent.VK_W -> ET.setLocation(ET.getX(), ET.getY() - 5);
@@ -235,7 +238,7 @@ class Movement implements KeyListener{
             case KeyEvent.VK_D -> ET.setLocation(ET.getX() + 5, ET.getY());
         }
     }
-    static void setCanMove(bool cm){
+    public static void setCanMove(boolean cm){
         canMove = cm;
     }
 }

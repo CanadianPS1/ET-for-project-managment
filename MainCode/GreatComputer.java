@@ -1,25 +1,19 @@
 //This program creates and moves the detective to make him move in ETs derection
-//import javax.swing.*;
-#include <iostream>
-#include "SceneHandler.c++"
-using namespace std;
-class GreatComputer : public SceneHandler{
-    private:
-    const ImageIcon detectiveMove1 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA1.png");
-    const ImageIcon detectiveMove2 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA2.png");
-    const ImageIcon detectiveMove3 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA3.png");
-    const ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
-    int moveAnimationSpot = 0;
+package MainCode;
+import javax.swing.*;
+public class GreatComputer extends SceneHandler{
+    private final ImageIcon detectiveMove1 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA1.png");
+    private final ImageIcon detectiveMove2 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA2.png");
+    private final ImageIcon detectiveMove3 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA3.png");
+    private final ImageIcon detectiveMove4 = new ImageIcon("seperated sprites\\AI\\CIA\\CIA4.png");
+    private int moveAnimationSpot = 0;
+    protected static JLabel detective;
     //private JLabel ET;
-    Thread forcingRight;
-    int count = 1;
-    bool running = true;
-    int energy;
-    protected:
-    static JLabel detective;
-
-    public:
-    void GreatComputer(JFrame g, SceneHandler handler, int e) {
+    private Thread forcingRight;
+    private int count = 1;
+    private boolean running = true;
+    private int energy;
+    public GreatComputer(JFrame g, SceneHandler handler, int e) {
         super(g, e);
         detective = new JLabel(detectiveMove1);
         detective.setSize(12,28);
@@ -27,11 +21,12 @@ class GreatComputer : public SceneHandler{
         detective.setVisible(true);
         game.add(detective);
     }
-    void GreatComputer(JFrame g, int e) {
+
+    public GreatComputer(JFrame g, int e) {
         super(g, e);
     }
     //this checks and compares ets location with the detective then moves the det ective tword him
-    int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
+    public int move(JLabel ET, SceneHandler handler, JLabel energyUI, int e){
         energy = e;
         if(ET.getX() > detective.getX()){
             detective.setLocation(detective.getX() + 2, detective.getY());
@@ -53,9 +48,9 @@ class GreatComputer : public SceneHandler{
         return energy;
     }
     //sets the animation loop for the detective
-    JLabel detectiveMoveAnimation(JLabel detective){
+    public JLabel detectiveMoveAnimation(JLabel detective){
 
-        string strSoundPath;
+        String strSoundPath;
         
         SoundHandler soundHandler = new SoundHandler();
 
@@ -89,7 +84,7 @@ class GreatComputer : public SceneHandler{
         }
         return detective;
     }
-    void detectiveGrab(JLabel ET, SceneHandler handler, JLabel energyUI){
+    public void detectiveGrab(JLabel ET, SceneHandler handler, JLabel energyUI){
         if(detective.getX() == ET.getX() && detective.getY() == ET.getY()){
             Movement.canMove = false;
             running = true;
@@ -179,12 +174,12 @@ class GreatComputer : public SceneHandler{
                         count = 0;
                     }
                 }
-                default -> cout<< "Error: invalid tile";
+                default -> System.err.println("Error: invalid tile");
 
             }
         }
     }
-    void forceRight(JLabel ET, SceneHandler handler, int amountMoved, int ETX, int ETY, JLabel energyUI){
+    public void forceRight(JLabel ET, SceneHandler handler, int amountMoved, int ETX, int ETY, JLabel energyUI){
         Runnable forceRight = () -> {
             if(count < amountMoved && running){
                 System.out.println(count);
@@ -193,7 +188,6 @@ class GreatComputer : public SceneHandler{
                 count += 1;
                 handler.detectLREdge(ET, energyUI, arrows);
                 handler.detectUDEdge(ET, energyUI, arrows);
-                System.out.println("location: " + Movement.location);
                 if(Movement.location == 6){
                     running = false;
                     count = amountMoved;

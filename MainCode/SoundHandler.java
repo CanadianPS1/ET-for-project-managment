@@ -1,9 +1,14 @@
-import java.io.File;
-import javax.sound.sampled.*;
-class SoundHandler {
+package MainCode;
 
-    public:
-    Clip soundControl(String strPath, boolean blnIsOn){
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+public class SoundHandler {
+
+    @SuppressWarnings({"CallToPrintStackTrace", "UseSpecificCatch"})
+    public Clip soundControl(String strPath, boolean blnIsOn){
 
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(strPath).getAbsoluteFile());
@@ -19,7 +24,8 @@ class SoundHandler {
 
     }
 
-    void sounndOff(Clip clip){
+    @SuppressWarnings("CallToPrintStackTrace")
+    public void sounndOff(Clip clip){
         try {
             clip.close();
         } catch (Exception e) {
